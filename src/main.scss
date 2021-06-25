@@ -1,0 +1,14 @@
+/********************************SASS MAIN***********************************/
+//STYLES
+@import "./styles/config";
+@import "./styles/buttons";
+
+//COMPONENTS
+@import './components/Home/Blogs/AllBlogs/AllBlogs.scss';
+@import './components/Home/Blogs/FeaturedBlog/FeaturedBlog.scss';
+@import './components/Home/Home/Home.scss';
+@import './components/Home/LoadMore/LoadMore.scss';
+@import './components/Home/Search/Search.scss';
+@import './components/Home/Home/Home.scss';
+@import './components/Shared/Banner/Banner.scss';
+@import './components/Shared/Navbar/Navbar.scss';

@@ -1,0 +1,16 @@
+@import '../../../styles/config';
+
+.Navbar {
+    margin: 10px $mini-margin 10px $mini-margin;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navHolder {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 30vw;
+        min-width: 200px;
+    }
+}
