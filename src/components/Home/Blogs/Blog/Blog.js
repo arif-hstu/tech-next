@@ -1,17 +1,17 @@
 import React from 'react';
 
-import './FeaturedBlog.scss';
-const FeaturedBlog = () => {
+import './Blog.scss';
+const Blog = ({color}) => {
     return (
-        <div className="FeaturedBlog">
+        <div className="Blog">
             <div className="imgHolder">
                 this is image
             </div>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
-                <h2>
+                <h3>
                     Guide: How to add Lorem Ipsum Lorem Ipsum
-                </h2>
+                </h3>
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere pariatur repellat esse sapiente commodi sint eligendi nulla non distinctio exercitationem.
                 </p>
@@ -31,4 +31,4 @@ const FeaturedBlog = () => {
     );
 };
 
-export default FeaturedBlog; // to Home
+export default Blog; // to AllBlogs

@@ -9,3 +9,12 @@
     position: absolute;
     font-weight: 400;
 }
+.avatarHolder {
+    background-color: $color-warning;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3rem;
+}

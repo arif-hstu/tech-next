@@ -7,18 +7,41 @@ a {
     color: $color-black;
     font-size: $font-para-size;
 }
+
+// heading
 h1 {
     font-family: $font-secondary-family;
     font-size: $font-headline-size;
     color: $color-primary;
+    font-weight: 900;
 }
+
+// titile 
+h2 {
+    font-family: $font-secondary-family;
+    font-size: $font-title-size;
+    color: $color-primary;
+    font-weight: 900;
+}
+
+// subtitle
+h3 {
+    font-family: $font-secondary-family;
+    font-size: $font-subtitle-size;
+    color: $color-primary;
+    font-weight: 900;
+}
+
+// highlight
 span {
     color: $color-secondary;
 }
+
+// paragraph
 p {
     font-family: $font-primary-family;
-    color: $color-primary;
+    color: $color-gray;
     font-size: $font-para-size;
     font-weight: $font-md;
+    margin: 0;
 }
-
