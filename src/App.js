@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import './App.scss';
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Home from './components/Home/Home/Home';
 export const PostsContext = createContext();
 export const PageCountContext = createContext();
@@ -35,8 +36,11 @@ function App() {
         <PageCountContext.Provider value={[pageCount, setPageCount]}>
           <PostsContext.Provider value={posts}>
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/home">
                 <Home />
+              </Route>
+              <Route exact path="/">
+                <Dashboard />
               </Route>
             </Switch>
           </PostsContext.Provider>

@@ -1,0 +1,53 @@
+@import '../../../styles/config';
+
+.Sidebar {
+    margin-left: $margin-tiny;
+    margin-right: $margin-tiny;
+
+    .logoHolder {
+        height: 1.5rem;
+
+        &:after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            border-bottom: 2px solid $color-md-light;
+            top: 1.5rem;
+            left: 0;
+            position: absolute;
+            z-index: 999;
+        }
+
+        p {
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            font-family: $font-secondary-family;
+            font-size: $font-para-lg-size;
+            font-weight: 900;
+        }
+
+        .menuHolder {
+            &>* {
+                margin-top: 0.5rem;
+                display: flex;
+                margin-bottom: 1.5rem;
+                padding: 0.8rem 0.5rem;
+                margin-left: -0.5rem;
+                border-radius: 0.3rem;
+
+                &:hover {
+                    background-color: $color-gray-light;
+                    cursor: pointer;
+                }
+            }
+
+            img {
+                width: 0.8rem;
+                margin-right: 0.8rem;
+            }
+        }
+    }
+}

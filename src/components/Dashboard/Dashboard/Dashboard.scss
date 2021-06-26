@@ -1,0 +1,17 @@
+@import '../../../styles/config';
+
+.Dashboard {
+    display: flex;
+
+    .sidebarHolder {
+        background-color: $color-light;
+        height: 100vh;
+        width: 20vw;
+        position: relative;
+    }
+
+    .topbarHolder {
+        position: relative;
+        width: 80vw;
+    }
+}

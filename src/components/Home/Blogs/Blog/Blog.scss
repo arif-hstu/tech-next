@@ -1,11 +1,12 @@
 @import '../../../../styles/config';
+
 .Blog {
     display: flex;
     flex-direction: column;
-    height: fit-content;
+    // height: 36rem;
     width: 100%;
-    & > 
-    .imgHolder {
+
+    &>.imgHolder {
         height: 15rem;
         margin-bottom: 1.5rem;
         width: 100%;
@@ -19,8 +20,8 @@
 
     .authorHolder {
         display: flex;
-        margin-top: 1rem;
-        
+        margin-top: 2rem;
+
         .infoHolder {
             margin-left: 1rem;
             display: flex;

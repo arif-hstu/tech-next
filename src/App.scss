@@ -32,6 +32,15 @@ h3 {
     font-weight: 900;
 }
 
+// menu
+h4 {
+    font-family: $font-secondary-family;
+    font-size: $font-menu-size;
+    color: $color-info;
+    font-weight: 900;
+    margin: 0;
+}
+
 // highlight
 span {
     color: $color-secondary;
