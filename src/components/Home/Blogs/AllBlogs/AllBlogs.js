@@ -12,7 +12,7 @@ const AllBlogs = () => {
         <div className="AllBlogs">
             {
                 posts[0] &&
-                posts.map( post => <Blog key={post.id} loadMore={loadMore} post={post} color={color} />)
+                posts.map( post => <Blog key={post.id} post={post} color={color} />)
             }
         </div>
     );
