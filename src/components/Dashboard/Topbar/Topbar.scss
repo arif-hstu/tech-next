@@ -1,14 +1,34 @@
 @import '../../../styles/config';
 
 .Topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.2rem;
     &:after {
         content: "";
         width: 100%;
         height: 2px;
         border-bottom: 2px solid $color-md-light;
-        top: 1.5rem;
+        top: 3rem;
         left: 0;
         position: absolute;
         z-index: 999;
+    }
+    .userName {
+        margin-top: 0.5rem;
+        margin-right: $margin-tiny;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+                
+        h4 {
+            color: $color-dark;
+        }
+        img {
+            width: 0.8rem;
+            margin-left: 0.5rem;
+        }
     }
 }

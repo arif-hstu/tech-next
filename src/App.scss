@@ -54,3 +54,12 @@ p {
     font-weight: $font-md;
     margin: 0;
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    font-family: $font-secondary-family;
+    color: $color-dark;
+    font-size: $font-para-size;
+    font-weight: $font-bold;
+}

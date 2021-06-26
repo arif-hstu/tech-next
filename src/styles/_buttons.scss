@@ -5,7 +5,10 @@
     color: $color-secondary;
     border-radius: 100px;
     font-weight: $font-bold;
+    width: fit-content;
+    cursor: pointer;
 }
+
 .btnPrimary {
     padding: 0.5rem 1rem;
     background-color: $color-info;
@@ -14,3 +17,14 @@
     font-weight: 500;
 }
 
+.btnDanger {
+    @extend .btnTag;
+    background-color: $color-danger;
+    color: $color-white;
+}
+
+.btnSuccess {
+    @extend .btnTag;
+    background-color: $color-success;
+    color: $color-white;
+}

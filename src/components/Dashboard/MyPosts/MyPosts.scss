@@ -1,0 +1,29 @@
+@import '../../../styles/config';
+
+.MyPosts {
+    background-color: $color-md-light;
+    height: calc(100vh - 4rem);
+    padding: $margin-tiny;
+
+    .contentHolder {
+        background-color: $color-white;
+        height: 70vh;
+        border-radius: 1rem;
+        padding: $margin-mini;
+
+        h4 {
+            margin-top: 0;
+            line-height: 1.5rem;
+            border-bottom: 1px solid $color-gray-light;
+        }
+
+        .header {
+            margin-top: 1rem;
+            span {
+                display: grid;
+                grid-template-columns: 0.2fr 0.8fr 1fr 0.5fr 0.5fr 0.5fr;
+                color: $color-dark;
+            }
+        }
+    }
+}

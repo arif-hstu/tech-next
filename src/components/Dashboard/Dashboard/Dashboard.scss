@@ -2,6 +2,8 @@
 
 .Dashboard {
     display: flex;
+    background-color: $color-light;
+    height: 100vh;
 
     .sidebarHolder {
         background-color: $color-light;
