@@ -1,16 +1,25 @@
 @import '../../../styles/config';
 
 .Navbar {
-    margin: 10px $mini-margin 10px $mini-margin;
+    margin: 10px $margin-mini 10px $margin-mini;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    .logoHolder {
+        a {
+            font-family: $font-secondary-family;
+            font-size: $font-subtitle-size;
+            font-weight: 900;
+        }
+    }
     .navHolder {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 30vw;
         min-width: 200px;
+        a {
+            font-family: $font-secondary-family;
+        }
     }
 }

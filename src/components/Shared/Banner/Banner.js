@@ -4,7 +4,13 @@ import './Banner.scss';
 const Banner = () => {
     return (
         <div className="Banner">
-            this is banner area
+            <div className="heading">
+                <h1>
+                    <span>Latest News</span><br />
+                    Updates
+                </h1>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, sunt?</p>
         </div>
     );
 };

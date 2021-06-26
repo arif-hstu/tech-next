@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 // margin 
-$mini-margin: 5vw;
-$wide-margin: 20vw;
+$margin-mini: 5vw;
+$margin-wide: 20vw;
 
 // colors
 $color-primary: #091F6C;
@@ -28,9 +28,10 @@ $font-secondary-family: 'Merriweather', sans-serif;
 
 $font-headline-size: 45px;
 $font-title-size: 30px;
-$font-subtitle-size: 25px;
+$font-subtitle-size: 24px;
 $font-para-lg-size: 16px;
 $font-para-size: 12px;
 
-$font-bold: 700;
 $font-light: 200;
+$font-md: 500;
+$font-bold: 700;

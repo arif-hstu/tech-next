@@ -1,9 +1,24 @@
 @import './styles/config';
 @import './styles/buttons';
-// @import './main.scss';
+@import './styles/classes';
 
 a {
     text-decoration: none;
     color: $color-black;
     font-size: $font-para-size;
 }
+h1 {
+    font-family: $font-secondary-family;
+    font-size: $font-headline-size;
+    color: $color-primary;
+}
+span {
+    color: $color-secondary;
+}
+p {
+    font-family: $font-primary-family;
+    color: $color-primary;
+    font-size: $font-para-size;
+    font-weight: $font-md;
+}
+

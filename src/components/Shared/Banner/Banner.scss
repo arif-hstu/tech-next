@@ -1,3 +1,6 @@
+@import '../../../styles/config';
+
 .Banner {
-    background-color: red;
+    margin: 5rem $margin-wide 0 $margin-wide;
+    text-align: center;
 }
