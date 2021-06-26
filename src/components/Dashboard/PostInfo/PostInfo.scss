@@ -4,14 +4,14 @@
     margin-top: 0.5rem;
     height: 2.5rem;
     display: grid;
-    grid-template-columns: 0.2fr 0.8fr 1fr 0.5fr 0.5fr 0.5fr;
+    grid-template-columns: 0.2fr 0.7fr 1fr 0.5fr 0.5fr 0.5fr;
     align-items: center;
 
     span {
         color: $color-gray;
         font-weight: $font-md;
     }
-    
+
     .btnTag {
         padding: 0.4rem 0.7rem;
         cursor: auto;

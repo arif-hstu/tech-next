@@ -19,6 +19,11 @@ const MyPosts = () => {
                     </span>
                 </div>
                 <PostInfo />
+                <PostInfo />
+                <PostInfo />
+                <PostInfo />
+                <PostInfo />
+                <PostInfo />
             </div>
         </div>
     );
