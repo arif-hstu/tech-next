@@ -4,8 +4,8 @@ import './LoadMore.scss';
 const LoadMore = () => {
     return (
         <div className='LoadMore'>
-            <div class="btnHolder">
-                <a href="/" class="btn btnWhite btnAnimate">load More</a>
+            <div className="btnHolder">
+                <a href="/" className="btn btnWhite btnAnimate">load More</a>
             </div>
         </div>
     );

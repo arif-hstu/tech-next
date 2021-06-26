@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { PostsContext } from '../../../../App';
 import './FeaturedBlog.scss';
+
 const FeaturedBlog = () => {
+    const posts = useContext(PostsContext);
     return (
         <div className="FeaturedBlog">
             <div className="imgHolder">
-                this is image
+                { posts[0] && posts[0].id}
             </div>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
                 <h2>
-                    Guide: How to add Lorem Ipsum Lorem Ipsum
+                    { posts[0] && posts[0].title }
                 </h2>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere pariatur repellat esse sapiente commodi sint eligendi nulla non distinctio exercitationem.
+                    { posts[0] && posts[0].body}
                 </p>
                 <div className="authorHolder">
                     <div className="avatarHolder">

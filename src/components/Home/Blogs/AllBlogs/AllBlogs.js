@@ -1,22 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { PostsContext } from '../../../../App';
 import Blog from '../Blog/Blog';
 import './AllBlogs.scss';
 
 const AllBlogs = () => {
+    const posts = useContext(PostsContext);
     const color = 'red';
 
     return (
         <div className="AllBlogs">
-            <Blog color={color} />
-            <Blog color={color} />
-            <Blog color={color} />
-            <Blog color={color} />
-            <Blog color={color} />
-            <Blog color={color} />
-            <Blog color={color} />
-            <Blog color={color} />
-            <Blog color={color} />
+            {
+                posts[0] &&
+                posts.map( post => <Blog key={post.id} loadMore={loadMore} post={post} color={color} />)
+            }
         </div>
     );
 };

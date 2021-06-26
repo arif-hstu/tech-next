@@ -1,19 +1,19 @@
 import React from 'react';
 
 import './Blog.scss';
-const Blog = ({color}) => {
+const Blog = ({post, color}) => {
     return (
         <div className="Blog">
             <div className="imgHolder">
-                this is image
+                { post.id }
             </div>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
                 <h3>
-                    Guide: How to add Lorem Ipsum Lorem Ipsum
+                    { post.title }
                 </h3>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere pariatur repellat esse sapiente commodi sint eligendi nulla non distinctio exercitationem.
+                    { post.body}
                 </p>
                 <div className="authorHolder">
                     <div className="avatarHolder">
