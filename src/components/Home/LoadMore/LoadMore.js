@@ -4,7 +4,9 @@ import './LoadMore.scss';
 const LoadMore = () => {
     return (
         <div className='LoadMore'>
-            LoadMore
+            <buttn className="btnPrimary">
+                load More
+            </buttn>
         </div>
     );
 };

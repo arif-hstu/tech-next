@@ -7,8 +7,10 @@
     font-weight: $font-bold;
 }
 .btnPrimary {
-    padding: 2rem 2.5rem;
+    padding: 0.5rem 1rem;
     background-color: $color-info;
     color: $color-white;
+    border-radius: 2rem;
+    font-weight: 500;
 }
 
