@@ -16,24 +16,25 @@ const AllUsers = () => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
             .then(res => res.json())
             .then(data => {
-                // function to count the page numbers for pagination
+                // count the page numbers for pagination
                 const pageNumbers = Math.floor(data.length / 3);
                 setPages(pageNumbers + 1);
                 setUsers(data);
                 setSortedUsers(data);
+                setUsersForPage(data.slice(0, 3))
             })
     }, []);
 
     for (let i = 0; i < pages; i++) {
-        listItems.push(<li id={i + 1} onClick={() => goToPage(i + 1)}>{i + 1}</li>)
+        listItems.push(<li key={i + 1} id={i + 1} onClick={() => goToPage(i + 1)}>{i + 1}</li>)
     }
 
+    // get the user data for each page
     const goToPage = (pageNumber) => {
         let tempUsers = [...sortedUsers];
         tempUsers = tempUsers.slice(pageNumber * 3 - 3, pageNumber * 3);
         setUsersForPage(tempUsers);
     }
-    console.log(usersForPage);
 
     const sortData = (keyword, order) => {
         const toBeSorted = [...users];
@@ -51,6 +52,7 @@ const AllUsers = () => {
             return 0;
         })
         setSortedUsers(sorted);
+        goToPage(1);
     }
 
     return (
@@ -92,7 +94,8 @@ const AllUsers = () => {
                     </span>
                 </div>
                 {
-                    usersForPage[0] && usersForPage.map((user, index) => <UserInfo key={index} index={index} user={user} />)
+                    usersForPage[0] &&
+                    usersForPage.map((user, index) => <UserInfo key={index} index={index} user={user} />)
                 }
                 <ul className="pageNumbers">
                     <li>«</li>
