@@ -2,11 +2,11 @@ import React from 'react';
 
 import './UserInfo.scss';
 
-const UserInfo = ({ index, user }) => {
+const UserInfo = ({ user }) => {
     // console.log(user, index)
     return (
         <div className="UserInfo">
-            <span>{index + 1}</span>
+            <span>{user.id}</span>
             <span>{user.name}</span>
             <span>{user.email}</span>
             <span>{user.email}</span>

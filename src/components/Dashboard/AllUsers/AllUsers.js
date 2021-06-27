@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import UserInfo from '../UserInfo/UserInfo';
 import ascendant from '../../../resources/icons/ascendant.svg';
@@ -13,6 +14,9 @@ const AllUsers = () => {
     const [pages, setPages] = useState([]);
     const [pageId, setPageId] = useState([1]);
     const [pageSize, setPageSize] = useState(8);
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -76,7 +80,7 @@ const AllUsers = () => {
                 <h4>All Users</h4>
                 <div className="header">
                     <span>
-                        <strong>No</strong>
+                        <strong>ID</strong>
                         <strong>Name
                             <span>
                                 <img
@@ -110,7 +114,7 @@ const AllUsers = () => {
                 </div>
                 {
                     usersForPage[0] &&
-                    usersForPage.map((user, index) => <UserInfo key={index} index={index} user={user} />)
+                    usersForPage.map((user, index) => <UserInfo key={index} user={user} />)
                 }
                 <ul className="pageNumbers">
                     <li onClick={() =>
@@ -127,6 +131,14 @@ const AllUsers = () => {
                         }
                     >»</li>
                 </ul>
+                <div className="formHolder">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="titleHolder">
+                            <h4>Post Title</h4>
+                            <input defaultValue="" {...register("example")} />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );
