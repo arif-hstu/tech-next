@@ -11,21 +11,30 @@ const AllUsers = () => {
     const [sortedUsers, setSortedUsers] = useState([]);
     const [usersForPage, setUsersForPage] = useState(1);
     const [pages, setPages] = useState([]);
-    const [pageNum, setPageNum] = useState([1]);
+    const [pageId, setPageId] = useState([1]);
+    const [pageSize, setPageSize] = useState(8);
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
             .then(res => res.json())
             .then(data => {
                 // count the page numbers for pagination
-                const pageNumbers = Math.floor(data.length / 3);
-                setPages(pageNumbers + 1);
+                const tempPageNum = Math.floor(data.length / pageSize);
+
+                // count page number
+                const reminder = data.length % pageSize;
+                reminder === 0 ?
+                    setPages(tempPageNum) :
+                    setPages(tempPageNum + 1)
+
+
                 setUsers(data);
                 setSortedUsers(data);
                 setUsersForPage(data.slice(0, 3))
             })
     }, []);
 
+    // create list items for pagination
     for (let i = 0; i < pages; i++) {
         listItems.push(<li key={i + 1} id={i + 1} onClick={() => goToPage(i + 1)}>{i + 1}</li>)
     }
@@ -33,9 +42,9 @@ const AllUsers = () => {
     // get the user data for each page
     const goToPage = (pageNumber) => {
         let tempUsers = [...sortedUsers];
-        tempUsers = tempUsers.slice(pageNumber * 3 - 3, pageNumber * 3);
+        tempUsers = tempUsers.slice(pageNumber * pageSize - pageSize, pageNumber * pageSize);
         setUsersForPage(tempUsers);
-        setPageNum(pageNumber);
+        setPageId(pageNumber);
     }
 
     const sortData = (keyword, order) => {
@@ -105,15 +114,15 @@ const AllUsers = () => {
                 }
                 <ul className="pageNumbers">
                     <li onClick={() =>
-                        pageNum === 1 ?
+                        pageId === 1 ?
                             goToPage(1) :
-                            goToPage(pageNum - 1)
+                            goToPage(pageId - 1)
                     }>«</li>
                     {listItems}
                     <li
                         onClick={() =>
-                            pageNum < pages ?
-                                goToPage(pageNum + 1) :
+                            pageId < pages ?
+                                goToPage(pageId + 1) :
                                 goToPage(pages)
                         }
                     >»</li>
