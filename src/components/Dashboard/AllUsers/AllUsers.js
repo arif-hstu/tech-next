@@ -11,6 +11,7 @@ const AllUsers = () => {
     const [sortedUsers, setSortedUsers] = useState([]);
     const [usersForPage, setUsersForPage] = useState(1);
     const [pages, setPages] = useState([]);
+    const [pageNum, setPageNum] = useState([1]);
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -34,6 +35,7 @@ const AllUsers = () => {
         let tempUsers = [...sortedUsers];
         tempUsers = tempUsers.slice(pageNumber * 3 - 3, pageNumber * 3);
         setUsersForPage(tempUsers);
+        setPageNum(pageNumber);
     }
 
     const sortData = (keyword, order) => {
@@ -52,8 +54,12 @@ const AllUsers = () => {
             return 0;
         })
         setSortedUsers(sorted);
-        goToPage(1);
     }
+
+    // reload after setting sorting criteria
+    useEffect(() => {
+        goToPage(1);
+    }, [sortedUsers])
 
     return (
         <div className="AllUsers">
@@ -98,9 +104,19 @@ const AllUsers = () => {
                     usersForPage.map((user, index) => <UserInfo key={index} index={index} user={user} />)
                 }
                 <ul className="pageNumbers">
-                    <li>«</li>
+                    <li onClick={() =>
+                        pageNum === 1 ?
+                            goToPage(1) :
+                            goToPage(pageNum - 1)
+                    }>«</li>
                     {listItems}
-                    <li>»</li>
+                    <li
+                        onClick={() =>
+                            pageNum < pages ?
+                                goToPage(pageNum + 1) :
+                                goToPage(pages)
+                        }
+                    >»</li>
                 </ul>
             </div>
         </div>
