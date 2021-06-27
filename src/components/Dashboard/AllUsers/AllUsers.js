@@ -6,10 +6,27 @@ import descendant from '../../../resources/icons/descendant.svg';
 import './AllUsers.scss';
 
 const AllUsers = () => {
+    const listItems = [];
     const [users, setUsers] = useState([]);
     const [sortedUsers, setSortedUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [pages, setPages] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/users`)
+            .then(res => res.json())
+            .then(data => {
+                // function to count the page numbers for pagination
+                const pageNumbers = Math.floor(data.length / 3);
+                setPages(pageNumbers + 1);
+                setUsers(data);
+                setSortedUsers(data);
+            })
+    }, []);
+
+    for (let i = 0; i < pages; i++) {
+        listItems.push(<li>{i + 1}</li>)
+    }
 
     const sortData = (keyword, order) => {
         const toBeSorted = [...users];
@@ -28,21 +45,6 @@ const AllUsers = () => {
         })
         setSortedUsers(sorted);
     }
-
-    const countPageNumbers = (userNumber) => {
-
-    }
-
-    useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users`)
-            .then(res => res.json())
-            .then(data => {
-                setUsers(data);
-                setSortedUsers(data);
-            })
-
-
-    }, []);
 
     return (
         <div className="AllUsers">
@@ -86,9 +88,9 @@ const AllUsers = () => {
                     users[0] && sortedUsers.map((user, index) => <UserInfo key={index} index={index} user={user} />)
                 }
                 <ul className="pageNumbers">
-                    {
-                        users.map((user, index) => <li key={index} >{index + 1}</li>)
-                    }
+                    <li><a href="/">«</a></li>
+                    {listItems}
+                    <li><a href="/">»</a></li>
                 </ul>
             </div>
         </div>
