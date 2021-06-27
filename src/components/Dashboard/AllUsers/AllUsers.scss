@@ -1,0 +1,51 @@
+@import '../../../styles/config';
+
+.AllUsers {
+    background-color: $color-md-light;
+    height: calc(100vh - 4rem);
+    padding: $margin-tiny;
+
+    .contentHolder {
+        background-color: $color-white;
+        height: 70vh;
+        border-radius: 1rem;
+        padding: $margin-mini;
+
+        h4 {
+            margin-top: 0;
+            line-height: 1.5rem;
+            border-bottom: 1px solid $color-gray-light;
+        }
+
+        .header {
+            margin-top: 1rem;
+
+            span {
+                display: grid;
+                grid-template-columns: 0.2fr 0.7fr 1fr 0.5fr;
+                color: $color-gray;
+
+                strong {
+                    font-weight: $font-regular;
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        margin-left: 0.8rem;
+                        display: flex;
+                        flex-direction: column;
+
+                        &>*:first-child {
+                            margin-bottom: 0.1rem;
+                        }
+
+                        img {
+                            width: 0.5rem;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

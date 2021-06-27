@@ -2,8 +2,9 @@
  
  import Topbar from '../Topbar/Topbar';
  import Sidebar from '../Sidebar/Sidebar.js';
- import MyPosts from '../MyPosts/MyPosts.js';
- import AddPost from '../AddPost/AddPost.js';
+//  import MyPosts from '../MyPosts/MyPosts.js';
+//  import AddPost from '../AddPost/AddPost.js';
+ import AllUsers from '../AllUsers/AllUsers';
  import './Dashboard.scss';
  
  const Dashboard = () => {
@@ -17,7 +18,8 @@
                      <Topbar />
                  </div>
                  {/* <MyPosts /> */}
-                 <AddPost />
+                 {/* <AddPost /> */}
+                 <AllUsers />
              </div>
          </div>
      );

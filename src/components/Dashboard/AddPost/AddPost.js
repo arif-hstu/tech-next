@@ -6,6 +6,9 @@ import './AddPost.scss';
 const AddPost = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
+
+    console.log(watch);
+    
     return (
         <div className="AddPost">
             <div className="contentHolder">
@@ -14,11 +17,11 @@ const AddPost = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="titleHolder">
                             <h4>Post Title</h4>
-                            <input defaultValue="test" {...register("example")} />
+                            <input defaultValue="" {...register("example")} />
                         </div>
                         <div className="descriptionHolder">
                             <h4>Description</h4>
-                            <input {...register("exampleRequired", { required: true })} />
+                            <textarea {...register("exampleRequired", { required: true })} />
                             {errors.exampleRequired && <span>This field is required</span>}
                         </div>
                         <div className="categoryHolder">
