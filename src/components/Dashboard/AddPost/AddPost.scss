@@ -1,0 +1,58 @@
+@import '../../../styles/config';
+
+.AddPost {
+    background-color: $color-md-light;
+    height: calc(100vh - 4rem);
+    padding: $margin-tiny;
+
+    .contentHolder {
+        .formHolder {
+            form {
+                display: grid;
+                grid-template-areas:
+                    'title title description description'
+                    'category category description description' 
+                    'button button button button';
+
+                .titleHolder {
+                    grid-area: title;
+                }
+
+                .descriptionHolder {
+                    grid-area: description;
+                }
+
+                .categoryHolder {
+                    grid-area: category;
+                    .tagHolder {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+
+                .btnHolder {
+                    grid-area: button;
+                    display: flex;
+                    justify-content: center;
+                    
+                    .btnPrimary {
+                        padding: 0.5rem 2rem;
+                    }
+                }
+
+                h4 {
+                    margin-top: 0;
+                    line-height: 1.5rem;
+                    border: none;
+                    color: $color-gray;
+                    font-size: $font-para-size;
+                }
+
+                .btnPrimary {
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

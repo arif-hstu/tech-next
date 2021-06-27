@@ -9,24 +9,22 @@
 
     span {
         color: $color-gray;
-        font-weight: $font-md;
+        font-weight: $font-regular;
+        font-size: $font-para-size;
     }
 
     .btnTag {
         padding: 0.4rem 0.7rem;
         cursor: auto;
-        margin-left: -0.7rem;
     }
 
     .btnDanger {
         color: $color-white;
         padding: 0.4rem 0.7rem;
-        margin-left: -0.7rem;
     }
 
     .btnSuccess {
         color: $color-white;
         padding: 0.4rem 0.7rem;
-        margin-left: -0.7rem;
     }
 }

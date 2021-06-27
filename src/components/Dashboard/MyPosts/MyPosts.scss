@@ -1,6 +1,6 @@
 @import '../../../styles/config';
 
-.MyPosts {
+.AddPost {
     background-color: $color-md-light;
     height: calc(100vh - 4rem);
     padding: $margin-tiny;
@@ -19,10 +19,15 @@
 
         .header {
             margin-top: 1rem;
+
             span {
                 display: grid;
                 grid-template-columns: 0.2fr 0.7fr 1fr 0.5fr 0.5fr 0.5fr;
-                color: $color-dark;
+                color: $color-gray;
+
+                strong {
+                    font-weight: $font-regular;
+                }
             }
         }
     }
