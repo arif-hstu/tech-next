@@ -9,7 +9,7 @@ const AllUsers = () => {
     const listItems = [];
     const [users, setUsers] = useState([]);
     const [sortedUsers, setSortedUsers] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [usersForPage, setUsersForPage] = useState(1);
     const [pages, setPages] = useState([]);
 
     useEffect(() => {
@@ -25,8 +25,15 @@ const AllUsers = () => {
     }, []);
 
     for (let i = 0; i < pages; i++) {
-        listItems.push(<li>{i + 1}</li>)
+        listItems.push(<li id={i + 1} onClick={() => goToPage(i + 1)}>{i + 1}</li>)
     }
+
+    const goToPage = (pageNumber) => {
+        let tempUsers = [...sortedUsers];
+        tempUsers = tempUsers.slice(pageNumber * 3 - 3, pageNumber * 3);
+        setUsersForPage(tempUsers);
+    }
+    console.log(usersForPage);
 
     const sortData = (keyword, order) => {
         const toBeSorted = [...users];
@@ -85,12 +92,12 @@ const AllUsers = () => {
                     </span>
                 </div>
                 {
-                    users[0] && sortedUsers.map((user, index) => <UserInfo key={index} index={index} user={user} />)
+                    usersForPage[0] && usersForPage.map((user, index) => <UserInfo key={index} index={index} user={user} />)
                 }
                 <ul className="pageNumbers">
-                    <li><a href="/">«</a></li>
+                    <li>«</li>
                     {listItems}
-                    <li><a href="/">»</a></li>
+                    <li>»</li>
                 </ul>
             </div>
         </div>
