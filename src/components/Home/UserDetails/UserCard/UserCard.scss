@@ -3,6 +3,7 @@
 .UserCard {
     margin: 4rem $margin-wide 0 $margin-wide;
     display: flex;
+    justify-content: center;
 
     .imgHolder {
         height: inherit;
@@ -17,11 +18,13 @@
     .imgHolder {
         width: 30%;
         margin-left: 10%;
+        max-width: 15rem;
     }
 
     .infoHolder {
         width: 60%;
         margin-right: 10%;
+        max-width: 30rem;
 
         h2 {
             margin-top: 0;
