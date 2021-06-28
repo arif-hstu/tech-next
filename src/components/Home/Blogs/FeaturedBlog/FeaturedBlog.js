@@ -6,16 +6,18 @@ import './FeaturedBlog.scss';
 
 const FeaturedBlog = () => {
     const posts = useContext(PostsContext);
-    
+
     return (
         <div className="FeaturedBlog">
-            <div id={posts[0].id} className="imgHolder">
-                {posts[0] && posts[0].id}
-            </div>
+            <Link to={`post/${2}`}>
+                <div className="imgHolder">
+                    {posts[0] && posts[0].id}
+                </div>
+            </Link>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
                 <Link to={`post/${2}`}>
-                    <h2 id={posts[0].id}>
+                    <h2>
                         {posts[0] && posts[0].title}
                     </h2>
                 </Link>

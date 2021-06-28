@@ -8,8 +8,12 @@
         width: 40%;
     }
 
-    &>.imgHolder {
-        width: 60%;
+    & > *:first-child {
+        width: 100%;
+    }
+
+    .imgHolder {
+        height: 100%;
         background-color: $color-purple-light;
         margin-right: 2rem;
         border-radius: 2.5rem;
