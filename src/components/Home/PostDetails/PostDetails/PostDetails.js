@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import Navbar from '../../../Shared/Navbar/Navbar';
 import Comment from '../Comments/Comment/Comment';
 import Comments from '../Comments/Comments/Comments';
@@ -8,11 +10,12 @@ import './PostDetails.scss';
 const PostDetails = () => {
     const [postData, setPostData] = useState([]);
     const [commentData, setCommentData] = useState([]);
+    const { id } = useParams();
 
     useEffect(() => {
         Promise.all([
-            fetch(`https://jsonplaceholder.typicode.com/posts/${1}`),
-            fetch(`https://jsonplaceholder.typicode.com/comments?postId=${1}`)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${id}`),
+            fetch(`https://jsonplaceholder.typicode.com/comments?postId=${id}`)
         ]).then(function (responses) {
             return Promise.all(responses.map(function (response) {
                 return response.json();
