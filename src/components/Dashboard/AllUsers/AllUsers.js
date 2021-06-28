@@ -22,12 +22,17 @@ const AllUsers = () => {
         // count the temp pages for pagination
         const tempUsers = [...users];
         const tempPageNum = Math.floor(tempUsers.length / data.length);
+
         // set pages
         const reminder = tempUsers.length % data.length;
         reminder === 0 ?
             setPages(tempPageNum) :
             setPages(tempPageNum + 1);
     };
+
+    console.log('pages.........', pages)
+    console.log('pageSize.........', pageSize)
+    console.log('pageId.........', pageId)
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -45,7 +50,16 @@ const AllUsers = () => {
                 setUsers(data);
 
                 // sort data depending on the local storage
-                sortData('email', 'desc', data);
+                if (localStorage.getItem('keyword') &&
+                    localStorage.getItem('order')) {
+                    const keyword = localStorage.getItem('keyword');
+                    const sortBy = localStorage.getItem('order');
+                    sortData(keyword, sortBy, data);
+
+                } else {
+                    setSortedUsers(data);
+                    setUsersForPage(data.slice(0, 3));
+                }
             });
 
     }, []);
@@ -81,6 +95,10 @@ const AllUsers = () => {
         })
         setSortedUsers(sorted);
         setUsersForPage(sorted.slice(0, 3));
+
+        // store sorting criteria on local storage
+        localStorage.setItem('keyword', keyword);
+        localStorage.setItem('order', order);
     }
 
     // reload after setting sorting criteria
