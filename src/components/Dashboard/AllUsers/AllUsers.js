@@ -83,7 +83,7 @@ const AllUsers = () => {
 
     const sortData = (keyword, order, data) => {
         let toBeSorted;
-        
+
         // determine which data to be sorted
 
         if (searchedUsers.length) {
@@ -121,13 +121,16 @@ const AllUsers = () => {
         const tempArray = [...users];
         const newArray = tempArray.filter(user => {
             if (searchTerm === "") {
-                console.log('user..........', user);
                 return user;
             } else if (user.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return user;
             }
         })
         setSearchedUsers(newArray);
+
+        const keyword = localStorage.getItem('keyword');
+        const sortBy = localStorage.getItem('order');
+        sortData(keyword, sortBy, newArray);
 
         // count the temp page count for pagination
         const tempPageNum = Math.floor(newArray.length / pageSize);
@@ -139,6 +142,8 @@ const AllUsers = () => {
             setPages(tempPageNum + 1);
 
     }, [searchTerm]);
+
+    console.log('searchedUsers.....', searchedUsers)
 
     return (
         <div className="AllUsers">
