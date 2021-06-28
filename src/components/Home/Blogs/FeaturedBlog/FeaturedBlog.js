@@ -9,14 +9,14 @@ const FeaturedBlog = () => {
 
     return (
         <div className="FeaturedBlog">
-            <Link to={`post/${2}`}>
+            <Link to={`post/${posts[0] && posts[0].id}`}>
                 <div className="imgHolder">
                     {posts[0] && posts[0].id}
                 </div>
             </Link>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
-                <Link to={`post/${2}`}>
+                <Link to={`post/${posts[0] && posts[0].id}`}>
                     <h2>
                         {posts[0] && posts[0].title}
                     </h2>
