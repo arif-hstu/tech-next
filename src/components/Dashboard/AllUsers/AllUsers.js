@@ -13,32 +13,42 @@ const AllUsers = () => {
     const [usersForPage, setUsersForPage] = useState(1);
     const [pages, setPages] = useState([]);
     const [pageId, setPageId] = useState([1]);
-    const [pageSize, setPageSize] = useState(3);
+    const [pageSize, setPageSize] = useState(4);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         setPageSize(data.length);
+
+        // count the temp pages for pagination
+        const tempUsers = [...users];
+        const tempPageNum = Math.floor(tempUsers.length / data.length);
+        // set pages
+        const reminder = tempUsers.length % data.length;
+        reminder === 0 ?
+            setPages(tempPageNum) :
+            setPages(tempPageNum + 1);
     };
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
             .then(res => res.json())
             .then(data => {
-                // count the page numbers for pagination
+                // count the temp pages for pagination
                 const tempPageNum = Math.floor(data.length / pageSize);
 
-                // count page number
+                // set pages
                 const reminder = data.length % pageSize;
                 reminder === 0 ?
                     setPages(tempPageNum) :
                     setPages(tempPageNum + 1)
 
-
                 setUsers(data);
-                setSortedUsers(data);
-                setUsersForPage(data.slice(0, 3))
-            })
-    }, [pageSize]);
+
+                // sort data depending on the local storage
+                sortData('email', 'desc', data);
+            });
+
+    }, []);
 
     // create list items for pagination
     for (let i = 0; i < pages; i++) {
@@ -53,22 +63,24 @@ const AllUsers = () => {
         setPageId(pageNumber);
     }
 
-    const sortData = (keyword, order) => {
-        const toBeSorted = [...users];
+    const sortData = (keyword, order, data) => {
+        let toBeSorted;
+        data ? toBeSorted = [...data] : toBeSorted = [...users]
         const sorted = toBeSorted.slice().sort((firstUser, secondUser) => {
-            const nameOfFirst = firstUser[keyword];
-            const nameOfSecond = secondUser[keyword];
+            const keywordOfFirst = firstUser[keyword];
+            const keywordOfSecond = secondUser[keyword];
 
             if (order === 'asc') {
-                if (nameOfFirst < nameOfSecond) return -1;
-                if (nameOfFirst > nameOfSecond) return 1;
+                if (keywordOfFirst < keywordOfSecond) return -1;
+                if (keywordOfFirst > keywordOfSecond) return 1;
             } else {
-                if (nameOfFirst < nameOfSecond) return 1;
-                if (nameOfFirst > nameOfSecond) return -1;
+                if (keywordOfFirst < keywordOfSecond) return 1;
+                if (keywordOfFirst > keywordOfSecond) return -1;
             }
             return 0;
         })
         setSortedUsers(sorted);
+        setUsersForPage(sorted.slice(0, 3));
     }
 
     // reload after setting sorting criteria
@@ -140,7 +152,8 @@ const AllUsers = () => {
                             <input
                                 name="test"
                                 type="number"
-                                {...register('length', {min: 1, max: users.length})}
+                                defaultValue={pageSize}
+                                {...register('length', { min: 1, max: users.length })}
                             />
                         </div>
                     </form>
