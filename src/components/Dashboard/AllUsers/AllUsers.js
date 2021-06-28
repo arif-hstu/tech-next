@@ -13,10 +13,12 @@ const AllUsers = () => {
     const [usersForPage, setUsersForPage] = useState(1);
     const [pages, setPages] = useState([]);
     const [pageId, setPageId] = useState([1]);
-    const [pageSize, setPageSize] = useState(8);
+    const [pageSize, setPageSize] = useState(3);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        setPageSize(data.length);
+    };
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -36,7 +38,7 @@ const AllUsers = () => {
                 setSortedUsers(data);
                 setUsersForPage(data.slice(0, 3))
             })
-    }, []);
+    }, [pageSize]);
 
     // create list items for pagination
     for (let i = 0; i < pages; i++) {
@@ -72,7 +74,7 @@ const AllUsers = () => {
     // reload after setting sorting criteria
     useEffect(() => {
         goToPage(1);
-    }, [sortedUsers])
+    }, [sortedUsers, pageSize])
 
     return (
         <div className="AllUsers">
@@ -135,7 +137,11 @@ const AllUsers = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="titleHolder">
                             <h4>Post Title</h4>
-                            <input defaultValue="" {...register("example")} />
+                            <input
+                                name="test"
+                                type="number"
+                                {...register('length', {min: 1, max: users.length})}
+                            />
                         </div>
                     </form>
                 </div>
