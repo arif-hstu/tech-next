@@ -3,10 +3,14 @@
 .Blog {
     display: flex;
     flex-direction: column;
-    // height: 36rem;
     width: 100%;
 
-    &>.imgHolder {
+    &>*:first-child {
+        width: 100%;
+        height: 100%;
+    }
+
+    .imgHolder {
         height: 15rem;
         margin-bottom: 1.5rem;
         width: 100%;

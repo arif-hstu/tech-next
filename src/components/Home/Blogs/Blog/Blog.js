@@ -1,17 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Blog.scss';
 const Blog = ({ post, color }) => {
     return (
         <div className="Blog">
-            <div className="imgHolder">
-                {post.id}
-            </div>
+            <Link to={`post/${post.id}`}>
+                <div className="imgHolder">
+                    {post.id}
+                </div>
+            </Link>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
-                <h3>
-                    {post.title}
-                </h3>
+                <Link to={`post/${post.id}`}>
+                    <h3>
+                        {post.title}
+                    </h3>
+                </Link>
                 <p>
                     {post.body}
                 </p>
