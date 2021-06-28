@@ -20,6 +20,7 @@ const AllUsers = () => {
     const [pageSize, setPageSize] = useState((
         localStorage.getItem('pageSize') || 4
     ));
+    const [searchedUsers, setSearchedUsers] = useState([]);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -37,11 +38,6 @@ const AllUsers = () => {
             setPages(tempPageNum) :
             setPages(tempPageNum + 1);
     };
-
-    console.log('sortedUers...', sortedUsers)
-    console.log('users...', users)
-    console.log('usersForPage...', usersForPage)
-
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -87,7 +83,14 @@ const AllUsers = () => {
 
     const sortData = (keyword, order, data) => {
         let toBeSorted;
-        data ? toBeSorted = [...data] : toBeSorted = [...users]
+        
+        // determine which data to be sorted
+
+        if (searchedUsers.length) {
+            toBeSorted = [...searchedUsers];
+        } else {
+            data ? toBeSorted = [...data] : toBeSorted = [...users];
+        }
         const sorted = toBeSorted.slice().sort((firstUser, secondUser) => {
             const keywordOfFirst = firstUser[keyword];
             const keywordOfSecond = secondUser[keyword];
@@ -112,7 +115,30 @@ const AllUsers = () => {
     // reload after setting sorting criteria
     useEffect(() => {
         goToPage(1);
-    }, [sortedUsers, pageSize])
+    }, [sortedUsers, pageSize]);
+
+    useEffect(() => {
+        const tempArray = [...users];
+        const newArray = tempArray.filter(user => {
+            if (searchTerm === "") {
+                console.log('user..........', user);
+                return user;
+            } else if (user.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return user;
+            }
+        })
+        setSearchedUsers(newArray);
+
+        // count the temp page count for pagination
+        const tempPageNum = Math.floor(newArray.length / pageSize);
+
+        // set page count
+        const reminder = newArray.length % pageSize;
+        reminder === 0 ?
+            setPages(tempPageNum) :
+            setPages(tempPageNum + 1);
+
+    }, [searchTerm]);
 
     return (
         <div className="AllUsers">

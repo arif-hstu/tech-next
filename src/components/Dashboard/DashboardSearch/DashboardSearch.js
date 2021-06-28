@@ -6,7 +6,6 @@ import './DashboardSearch.scss';
 
 const DashboardSearch = () => {
     const [searchTerm, setSearchTerm] = useContext(SearchContext);
-    console.log(searchTerm)
     return (
         <div className="DashboardSearch">
             <div className="searchHolder">
