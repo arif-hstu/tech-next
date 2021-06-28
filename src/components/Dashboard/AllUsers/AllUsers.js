@@ -85,8 +85,7 @@ const AllUsers = () => {
         let toBeSorted;
 
         // determine which data to be sorted
-
-        if (searchedUsers.length) {
+        if (searchTerm !== "") {
             toBeSorted = [...searchedUsers];
         } else {
             data ? toBeSorted = [...data] : toBeSorted = [...users];
@@ -107,6 +106,8 @@ const AllUsers = () => {
         setSortedUsers(sorted);
         setUsersForPage(sorted.slice(0, 3));
 
+        console.log('sorted....... there is a problem here, it is not updateing instantly', sorted);
+
         // store sorting criteria in local storage
         localStorage.setItem('keyword', keyword);
         localStorage.setItem('order', order);
@@ -121,11 +122,12 @@ const AllUsers = () => {
         const tempArray = [...users];
         const newArray = tempArray.filter(user => {
             if (searchTerm === "") {
-                return user;
+                return [];
             } else if (user.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                 return user;
             }
         })
+        console.log('newArray .......', newArray);
         setSearchedUsers(newArray);
 
         const keyword = localStorage.getItem('keyword');
@@ -143,7 +145,9 @@ const AllUsers = () => {
 
     }, [searchTerm]);
 
-    console.log('searchedUsers.....', searchedUsers)
+    console.log('searchedUsers.....', searchedUsers);
+    console.log('searche Term', searchTerm);
+    console.log('user for page ', usersForPage);
 
     return (
         <div className="AllUsers">

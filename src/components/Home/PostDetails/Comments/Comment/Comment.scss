@@ -1,0 +1,40 @@
+@import '../../../../../styles/config';
+
+.Comment {
+    hr {
+        border-top: 1px dashed $color-gray;
+    }
+    .authorHolder {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        margin-top: 1rem;
+        justify-content: flex-start;
+
+        .infoHolder {
+            margin-left: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-transform: capitalize;
+
+            &>*:nth-child(2) {
+                color: $color-secondary;
+                font-size: $font-para-size;
+                margin-bottom: 0.5rem;
+                text-transform: lowercase;
+            }
+
+            &>*:last-child {
+                font-weight: $font-regular;
+                text-transform: initial;
+            }
+        }
+
+        .avatarHolder {
+            height: 40px;
+            width: 40px;
+            border-radius: 40px;
+        }
+    }
+}

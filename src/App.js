@@ -8,6 +8,7 @@ import {
 import './App.scss';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Home from './components/Home/Home/Home';
+import PostDetails from './components/Home/PostDetails/PostDetails/PostDetails';
 export const PostsContext = createContext();
 export const PageCountContext = createContext();
 export const SearchContext = createContext();
@@ -41,6 +42,9 @@ function App() {
                   <Home />
                 </Route>
                 <Route exact path="/">
+                  <PostDetails />
+                </Route>
+                <Route exact path="/dashboard">
                   <Dashboard />
                 </Route>
               </Switch>

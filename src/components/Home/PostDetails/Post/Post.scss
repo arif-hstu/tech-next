@@ -1,0 +1,72 @@
+@import '../../../../styles/config';
+
+.Post {
+    margin: 0 $margin-wide;
+    display: flex;
+    flex-direction: column;
+
+    &>.infoHolder {
+        width: 100%;
+
+        .titleHolder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                text-align: center;
+                width: 80%;
+                text-transform: capitalize;
+            }
+        }
+
+        .postBody {
+            margin-top: 0.5rem;
+            font-weight: $font-regular;
+            font-size: $font-para-lg-size;
+            color: $color-dark;
+        }
+    }
+
+    &>.imgHolder {
+        background-color: $color-purple-light;
+        border-radius: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 20rem;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .authorHolder {
+        display: flex;
+        margin-top: 1rem;
+
+        .infoHolder {
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .Posts {
+        flex-direction: column;
+
+        &>.infoHolder {
+            width: 100%;
+        }
+
+        .imgHolder {
+            width: 100%;
+            height: 15rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
