@@ -13,17 +13,21 @@ const AllUsers = () => {
     const [usersForPage, setUsersForPage] = useState(1);
     const [pages, setPages] = useState([]);
     const [pageId, setPageId] = useState([1]);
-    const [pageSize, setPageSize] = useState(4);
+    const [pageSize, setPageSize] = useState((
+        localStorage.getItem('pageSize') || 4
+    ));
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
+        // store pageSize in localStorage
         setPageSize(data.length);
+        localStorage.setItem('pageSize', data.length);
 
-        // count the temp pages for pagination
+        // count the temp page count for pagination
         const tempUsers = [...users];
         const tempPageNum = Math.floor(tempUsers.length / data.length);
 
-        // set pages
+        // set page count
         const reminder = tempUsers.length % data.length;
         reminder === 0 ?
             setPages(tempPageNum) :
@@ -49,7 +53,7 @@ const AllUsers = () => {
 
                 setUsers(data);
 
-                // sort data depending on the local storage
+                // sort data depending in the local storage
                 if (localStorage.getItem('keyword') &&
                     localStorage.getItem('order')) {
                     const keyword = localStorage.getItem('keyword');
@@ -61,7 +65,6 @@ const AllUsers = () => {
                     setUsersForPage(data.slice(0, 3));
                 }
             });
-
     }, []);
 
     // create list items for pagination
@@ -96,7 +99,7 @@ const AllUsers = () => {
         setSortedUsers(sorted);
         setUsersForPage(sorted.slice(0, 3));
 
-        // store sorting criteria on local storage
+        // store sorting criteria in local storage
         localStorage.setItem('keyword', keyword);
         localStorage.setItem('order', order);
     }
