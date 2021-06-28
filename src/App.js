@@ -3,24 +3,25 @@ import {
   BrowserRouter as Router,
   Switch,
   Route
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import './App.scss';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Home from './components/Home/Home/Home';
 export const PostsContext = createContext();
 export const PageCountContext = createContext();
+export const SearchContext = createContext();
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [pageCount, setPageCount] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts?_page=${pageCount}&_limit=10`)
       .then(res => res.json())
       .then(data => {
         if (posts[0]) {
-          console.log('previous data:', posts)
           const loadedPosts = [...posts, ...data];
           setPosts(loadedPosts);
         } else {
@@ -34,14 +35,16 @@ function App() {
       <Router>
         <PageCountContext.Provider value={[pageCount, setPageCount]}>
           <PostsContext.Provider value={posts}>
-            <Switch>
-              <Route exact path="/home">
-                <Home />
-              </Route>
-              <Route exact path="/">
-                <Dashboard />
-              </Route>
-            </Switch>
+            <SearchContext.Provider value={[searchTerm, setSearchTerm]}>
+              <Switch>
+                <Route exact path="/home">
+                  <Home />
+                </Route>
+                <Route exact path="/">
+                  <Dashboard />
+                </Route>
+              </Switch>
+            </SearchContext.Provider>
           </PostsContext.Provider>
         </PageCountContext.Provider>
       </Router>

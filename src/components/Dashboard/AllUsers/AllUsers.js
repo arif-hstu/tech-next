@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import UserInfo from '../UserInfo/UserInfo';
 import ascendant from '../../../resources/icons/ascendant.svg';
 import descendant from '../../../resources/icons/descendant.svg';
 import './AllUsers.scss';
+import { SearchContext } from '../../../App';
 
 const AllUsers = () => {
     const listItems = [];
+
+    const [searchTerm, setSearchTerm] = useContext(SearchContext);
+
     const [users, setUsers] = useState([]);
     const [sortedUsers, setSortedUsers] = useState([]);
-    const [usersForPage, setUsersForPage] = useState(1);
+    const [usersForPage, setUsersForPage] = useState([]);
     const [pages, setPages] = useState([]);
     const [pageId, setPageId] = useState([1]);
     const [pageSize, setPageSize] = useState((
@@ -34,9 +38,10 @@ const AllUsers = () => {
             setPages(tempPageNum + 1);
     };
 
-    console.log('pages.........', pages)
-    console.log('pageSize.........', pageSize)
-    console.log('pageId.........', pageId)
+    console.log('sortedUers...', sortedUsers)
+    console.log('users...', users)
+    console.log('usersForPage...', usersForPage)
+
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)

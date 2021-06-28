@@ -9,7 +9,7 @@ const UserInfo = ({ user }) => {
             <span>{user.id}</span>
             <span>{user.name}</span>
             <span>{user.email}</span>
-            <span>{user.email}</span>
+            <span>{user.website}</span>
         </div>
     );
 };

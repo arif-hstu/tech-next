@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SearchContext } from '../../../App';
 
 import search from '../../../resources/icons/search.svg';
 import './DashboardSearch.scss';
+
 const DashboardSearch = () => {
+    const [searchTerm, setSearchTerm] = useContext(SearchContext);
+    console.log(searchTerm)
     return (
         <div className="DashboardSearch">
             <div className="searchHolder">
-            <input type="text" />
+            <input type="text" onChange={(event) => setSearchTerm(event.target.value)}/>
             <img src={search} alt="DashboardSearch" />
             <p className="placeholder">
                 Search
