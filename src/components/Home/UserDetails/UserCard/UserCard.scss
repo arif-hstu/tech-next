@@ -1,0 +1,69 @@
+@import '../../../../styles/config';
+
+.UserCard {
+    margin: 4rem $margin-wide 0 $margin-wide;
+    display: flex;
+
+    .imgHolder {
+        height: inherit;
+        background-color: $color-purple-light;
+        margin-right: 2rem;
+        border-radius: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imgHolder {
+        width: 30%;
+        margin-left: 10%;
+    }
+
+    .infoHolder {
+        width: 60%;
+        margin-right: 10%;
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .paraLg {
+            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .btnTag {
+            margin-right: 0.5rem;
+            float: left;
+        }
+
+        span {
+            color: $color-gray;
+            display: inline-block;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: $font-para-lg-size;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 991px) {
+    .UserCard {
+        flex-direction: column;
+
+        &>.infoHolder {
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .imgHolder {
+            width: 100%;
+            height: 15rem;
+            margin-left: 0;
+            margin-bottom: 1.5rem;
+            margin-right: 0;
+        }
+    }
+}

@@ -9,6 +9,7 @@ import './App.scss';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Home from './components/Home/Home/Home';
 import PostDetails from './components/Home/PostDetails/PostDetails/PostDetails';
+import UserDetails from './components/Home/UserDetails/UserDetails/UserDetails';
 
 export const PostsContext = createContext();
 export const PageCountContext = createContext();
@@ -39,7 +40,7 @@ function App() {
           <PostsContext.Provider value={posts}>
             <SearchContext.Provider value={[searchTerm, setSearchTerm]}>
               <Switch>
-                <Route exact path="/">
+                <Route exact path="/home">
                   <Home />
                 </Route>
                 <Route exact path="/dashboard">
@@ -47,6 +48,9 @@ function App() {
                 </Route>
                 <Route exact path="/post/:id">
                   <PostDetails />
+                </Route>
+                <Route exact path="/">
+                  <UserDetails />
                 </Route>
               </Switch>
             </SearchContext.Provider>
