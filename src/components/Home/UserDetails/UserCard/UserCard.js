@@ -3,27 +3,24 @@ import { Link } from 'react-router-dom';
 
 import './UserCard.scss';
 
-const UserCard = () => {
-
+const UserCard = ({ userData }) => {
     return (
         <div className="UserCard">
             <div className="imgHolder">
                 img
             </div>
             <div className="infoHolder">
-                <h2>Lorem Ipusum</h2>
-                <p className="paraLg">User Name</p>
-                <p className="catchPhrase">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, fugiat.</p>
-                <span>
-                    "Kulas Light", "Apt. 556",Gwenborough
-                </span>
-                <p className="paraLg">Website.com</p>
+                <h2>{userData.name}</h2>
+                <p className="paraLg">{userData.username}</p>
+                <p className="catchPhrase">{userData.company && userData.company.name}</p>
+                <span>{userData.address && userData.address.street+", "+ userData.address.suite+", "+ userData.address.city}</span>
+                <p className="paraLg">{userData.website}</p>
                 <div className="contactInfo">
                     <p className="btnTag">
-                        mail.com
+                        {userData.email}
                     </p>
                     <p className="btnTag">
-                        01548852
+                        {userData.phone}
                     </p>
                 </div>
             </div>

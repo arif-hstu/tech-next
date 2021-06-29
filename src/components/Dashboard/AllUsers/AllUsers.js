@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 import UserInfo from '../UserInfo/UserInfo';
 import ascendant from '../../../resources/icons/ascendant.svg';
@@ -182,7 +183,7 @@ const AllUsers = () => {
                 </div>
                 {
                     usersForPage[0] &&
-                    usersForPage.map((user, index) => <UserInfo key={index} user={user} />)
+                    usersForPage.map((user, index) => <Link to={`/user/${user.id}`}><UserInfo key={index} user={user} /></Link>)
                 }
                 <ul className="pageNumbers">
                     <li onClick={() =>

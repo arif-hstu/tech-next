@@ -33,7 +33,7 @@ const PostDetails = () => {
             <Navbar />
             <Post postData={postData}/>
 
-            {/* using composition to avoid props-drilling */}
+            {/* using props-composition to avoid props-drilling */}
             <Comments>
                 {
                     commentData.map(commentDt => <Comment key={commentDt.id} commentDt={commentDt} />)

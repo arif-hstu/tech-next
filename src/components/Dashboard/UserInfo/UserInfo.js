@@ -13,4 +13,4 @@ const UserInfo = ({ user }) => {
     );
 };
 
-export default UserInfo;
+export default UserInfo; // to AllUsers
