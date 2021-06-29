@@ -7,6 +7,10 @@
     grid-template-columns: 0.2fr 0.7fr 1fr 0.5fr 0.5fr 0.5fr;
     align-items: center;
 
+    & > *:nth-child(2) {
+        text-transform: capitalize;
+    }
+
     span {
         color: $color-gray;
         font-weight: $font-regular;

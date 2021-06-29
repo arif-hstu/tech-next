@@ -8,8 +8,6 @@ const AllBlogs = () => {
     const posts = useContext(PostsContext);
     const color = 'red';
 
-    console.log(posts.slice());
-
     return (
         <div className="AllBlogs">
             {

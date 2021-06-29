@@ -3,7 +3,6 @@ import React from 'react';
 import './UserInfo.scss';
 
 const UserInfo = ({ user }) => {
-    // console.log(user, index)
     return (
         <div className="UserInfo">
             <span>{user.id}</span>

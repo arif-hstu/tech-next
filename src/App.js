@@ -40,10 +40,10 @@ function App() {
           <PostsContext.Provider value={posts}>
             <SearchContext.Provider value={[searchTerm, setSearchTerm]}>
               <Switch>
-                <Route exact path="/">
+                <Route exact path="/dashboard">
                   <Home />
                 </Route>
-                <Route exact path="/dashboard">
+                <Route exact path="/">
                   <Dashboard />
                 </Route>
                 <Route exact path="/post/:id">

@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PostInfo from '../PostInfo/PostInfo';
 import './MyPosts.scss';
 
 const MyPosts = () => {
+    const [myPosts, setMyPosts] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=2`)
+            .then(res => res.json())
+            .then(data => {
+                setMyPosts(data);
+            });
+    }, []);
+
     return (
         <div className="MyPosts">
             <div className="contentHolder">
@@ -18,12 +28,9 @@ const MyPosts = () => {
                         <strong>Delete</strong>
                     </span>
                 </div>
-                <PostInfo />
-                <PostInfo />
-                <PostInfo />
-                <PostInfo />
-                <PostInfo />
-                <PostInfo />
+                {
+                    myPosts.length && myPosts.map(myPost => <PostInfo key={myPost.id} myPost={myPost} />)
+                }
             </div>
         </div>
     );
