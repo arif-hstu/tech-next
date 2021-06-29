@@ -117,6 +117,7 @@ const AllUsers = () => {
         goToPage(1);
     }, [sortedUsers, pageSize]);
 
+    // update data depending on searchItem
     useEffect(() => {
         const tempArray = [...users];
         const newArray = tempArray.filter(user => {

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import './Blog.scss';
 const Blog = ({ post, color }) => {
+    const history = useHistory();
+
     return (
         <div className="Blog">
             <Link to={`post/${post.id}`}>
@@ -12,7 +14,7 @@ const Blog = ({ post, color }) => {
             </Link>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
-                <Link to={`post/${post.id}`}>
+                <Link to={`post/${post.id}`} Z>
                     <h3>
                         {post.title}
                     </h3>
