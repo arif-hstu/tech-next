@@ -38,6 +38,7 @@
 
         .btnTag {
             margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
             float: left;
         }
 
@@ -59,14 +60,20 @@
         .infoHolder {
             width: 100%;
             margin-right: 0;
+            margin-left: 0;
             text-align: center;
+            justify-self: center;
+            align-self: center;
 
             .contactInfo {
                 display: flex;
                 justify-content: center;
+                flex-direction: column;
+                align-items: center;
 
                 .btnTag {
                     float: none;
+                    margin-bottom: 1rem;
                 }
             }
         }

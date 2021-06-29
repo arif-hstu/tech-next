@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import './UserCard.scss';
 
@@ -13,7 +12,11 @@ const UserCard = ({ userData }) => {
                 <h2>{userData.name}</h2>
                 <p className="paraLg">{userData.username}</p>
                 <p className="catchPhrase">{userData.company && userData.company.name}</p>
-                <span>{userData.address && userData.address.street+", "+ userData.address.suite+", "+ userData.address.city}</span>
+
+                <span>{
+                    userData.address && userData.address.street + ", " + userData.address.suite + ", " + userData.address.city
+                }</span>
+
                 <p className="paraLg">{userData.website}</p>
                 <div className="contactInfo">
                     <p className="btnTag">
