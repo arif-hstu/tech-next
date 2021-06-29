@@ -9,9 +9,7 @@ const LoadMore = () => {
         let tempCount = pageCount;
         tempCount = tempCount + 1;
         setPageCount(tempCount);
-        console.log(tempCount)
     }
-    console.log(pageCount)
     return (
         <div className='LoadMore'>
             <div className="btnHolder">
