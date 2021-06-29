@@ -5,10 +5,22 @@ import './AddPost.scss';
 
 const AddPost = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data) => {
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          body: JSON.stringify({
+            title: data.postTitle,
+            body: data.postBody          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+        .then(response => response.json())
+        .then(json => {
+          console.log('response: ' + JSON.stringify(json));
+        })
+    };
 
-    console.log(watch);
-    
     return (
         <div className="AddPost">
             <div className="contentHolder">
@@ -17,11 +29,11 @@ const AddPost = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="titleHolder">
                             <h4>Post Title</h4>
-                            <input defaultValue="" {...register("example")} />
+                            <input defaultValue="" {...register("postTitle")} />
                         </div>
                         <div className="descriptionHolder">
                             <h4>Description</h4>
-                            <textarea {...register("exampleRequired", { required: true })} />
+                            <textarea {...register("postBody", { required: true })} />
                             {errors.exampleRequired && <span>This field is required</span>}
                         </div>
                         <div className="categoryHolder">
