@@ -106,8 +106,6 @@ const AllUsers = () => {
         setSortedUsers(sorted);
         setUsersForPage(sorted.slice(0, 3));
 
-        console.log('sorted....... there is a problem here, it is not updateing instantly', sorted);
-
         // store sorting criteria in local storage
         localStorage.setItem('keyword', keyword);
         localStorage.setItem('order', order);
@@ -127,7 +125,6 @@ const AllUsers = () => {
                 return user;
             }
         })
-        console.log('newArray .......', newArray);
         setSearchedUsers(newArray);
 
         const keyword = localStorage.getItem('keyword');
@@ -144,10 +141,6 @@ const AllUsers = () => {
             setPages(tempPageNum + 1);
 
     }, [searchTerm]);
-
-    console.log('searchedUsers.....', searchedUsers);
-    console.log('searche Term', searchTerm);
-    console.log('user for page ', usersForPage);
 
     return (
         <div className="AllUsers">

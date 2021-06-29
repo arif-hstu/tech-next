@@ -43,13 +43,13 @@ function App() {
                 <Route exact path="/home">
                   <Home />
                 </Route>
-                <Route exact path="/dashboard">
+                <Route exact path="/">
                   <Dashboard />
                 </Route>
                 <Route exact path="/post/:id">
                   <PostDetails />
                 </Route>
-                <Route exact path="/">
+                <Route exact path="/user/:id">
                   <UserDetails />
                 </Route>
               </Switch>
