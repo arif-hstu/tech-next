@@ -15,6 +15,10 @@
 
     & > .infoHolder {
         margin-top: 2rem;
+
+        & :nth-child(2) {
+            cursor: pointer;
+        }
     }
 
     .imgHolder {
@@ -27,6 +31,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
 
     .authorHolder {

@@ -3,9 +3,13 @@
 .LoadMore {
     margin: 2rem $margin-wide;
     height: 10rem;
+    display: flex;
+    justify-content: center;
+    height: max-content;
+
     .btnHolder {
-        text-align: center;
         position: relative;
+        width: max-content;
     }
 
     .btn:link,
@@ -48,7 +52,7 @@
     }
 
     .btnWhite::after {
-        background-color: red;
+        background-color: blue;
         opacity: 0.5;
     }
 

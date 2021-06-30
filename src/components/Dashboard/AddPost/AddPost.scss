@@ -18,7 +18,7 @@
                     'category category description description'
                     'button button button button';
 
-                .titleHolder > input {
+                .titleHolder>input {
                     padding-left: 0.5rem;
                     width: 100%;
                     background-color: $color-gray-light;
@@ -31,7 +31,7 @@
                     }
                 }
 
-                .descriptionHolder > textarea {
+                .descriptionHolder>textarea {
                     padding-left: 0.5rem;
                     height: 10rem;
                     width: 100%;
@@ -57,12 +57,12 @@
                     grid-area: category;
 
                     .tagHolder {
-
                         .btnTag {
                             float: left;
                             margin-right: 0.5rem;
                             padding: 0.2rem 0.5rem;
                             font-size: 8px;
+                            background-color: $color-gray-light;
                         }
                     }
                 }
