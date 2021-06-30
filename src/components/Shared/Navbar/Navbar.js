@@ -15,9 +15,24 @@ const Navbar = () => {
                         color: '#279EFF',
                         backgroundColor: '#F8F8F8'
                     }} > Career</NavLink>
-                <NavLink to="/pricing">Pricing</NavLink>
-                <NavLink to="/about">About</NavLink>
-                <NavLink to="/blog">Blog</NavLink>
+                <NavLink
+                    to="/pricing"
+                    activeStyle={{
+                        color: '#279EFF',
+                        backgroundColor: '#F8F8F8'
+                    }}>Pricing</NavLink>
+                <NavLink
+                    to="/about"
+                    activeStyle={{
+                        color: '#279EFF',
+                        backgroundColor: '#F8F8F8'
+                    }}>About</NavLink>
+                <NavLink
+                    to="/"
+                    activeStyle={{
+                        color: '#279EFF',
+                        backgroundColor: '#F8F8F8'
+                    }}>Blog</NavLink>
             </div>
             <Link
                 to="/dashboard"
