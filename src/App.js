@@ -10,6 +10,8 @@ import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Home from './components/Home/Home/Home';
 import PostDetails from './components/Home/PostDetails/PostDetails/PostDetails';
 import UserDetails from './components/Home/UserDetails/UserDetails/UserDetails';
+import NotFound from './components/NotFound/NotFound';
+import Banner from './components/Shared/Banner/Banner';
 
 export const PostsContext = createContext();
 export const PageCountContext = createContext();
@@ -54,6 +56,11 @@ function App() {
                   </Route>
                   <Route exact path="/user/:id">
                     <UserDetails />
+                  </Route>
+                  <Route path="/">
+                    <NotFound>
+                      <Banner notFound={'notFound'} />
+                    </NotFound>
                   </Route>
                 </Switch>
               </UserPostsContext.Provider>

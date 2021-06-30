@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 import './Navbar.scss';
 const Navbar = () => {
@@ -8,20 +9,32 @@ const Navbar = () => {
                 <a href="/" alt="TechNext">TechNext</a>
             </div>
             <div className="navHolder">
-                <a href="/">Career</a>
-                <a href="/">Pricing</a>
-                <a href="/">About</a>
-                <a
-                    className="btnTag"
-                    href="/"
-                >Blog</a>
+                <NavLink
+                    to="/career"
+                    activeStyle={{
+                        color: '#279EFF',
+                        backgroundColor: '#F8F8F8'
+                    }} > Career</NavLink>
+                <NavLink to="/pricing">Pricing</NavLink>
+                <NavLink to="/about">About</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
             </div>
-            <a
+            <Link
+                to="/dashboard"
                 className="btnTag"
-                href="/"
-            >Login</a>
+            >Login</Link>
         </div>
     );
 };
+
+<NavLink
+    to="/faq"
+    activeStyle={{
+        fontWeight: "bold",
+        color: "red"
+    }}
+>
+    FAQs
+</NavLink>
 
 export default Navbar;

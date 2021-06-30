@@ -1,10 +1,12 @@
 @import '../../../styles/config';
+@import '../../../styles/classes';
 
 .Navbar {
     margin: 10px $margin-mini 10px $margin-mini;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .logoHolder {
         a {
             font-family: $font-secondary-family;
@@ -12,12 +14,36 @@
             font-weight: 900;
         }
     }
+
     .navHolder {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 30vw;
         min-width: 200px;
+
+        &>* {
+            font-family: $font-secondary-family;
+            padding: 0.5rem 1rem;
+            color: $color-dark;
+            border-radius: 100px;
+            font-weight: $font-bold;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+        &>*:hover {
+            font-family: $font-secondary-family;
+            padding: 0.5rem 1rem;
+            background-color: $color-md-light;
+            color: $color-secondary;
+            border-radius: 100px;
+            font-weight: $font-bold;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+
         a {
             font-family: $font-secondary-family;
         }

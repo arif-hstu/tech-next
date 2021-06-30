@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import { PostsContext, SearchContext, UserPostsContext } from '../../../../App';
 import Blog from '../Blog/Blog';

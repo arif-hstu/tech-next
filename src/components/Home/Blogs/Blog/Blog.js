@@ -5,20 +5,21 @@ import './Blog.scss';
 const Blog = ({ post, color }) => {
     const history = useHistory();
 
+    // route to the post
+    const pushLocation = () => {
+        history.push(`/post/${post.id}`);
+    }
+
     return (
         <div className="Blog">
-            <Link to={`post/${post.id}`}>
-                <div className="imgHolder">
-                    {post.id}
-                </div>
-            </Link>
-            <div className="infoHolder">
-                <a href="/" className="btnTag">News</a>
-                <Link to={`post/${post.id}`} Z>
-                    <h3>
-                        {post.title}
-                    </h3>
-                </Link>
+            <div onClick={(event) => pushLocation(event)} className="imgHolder">
+                {post.id}
+            </div>
+            <div onClick={(event) => pushLocation(event)} className="infoHolder">
+                <Link href="/" className="btnTag">News</Link>
+                <h3>
+                    {post.title}
+                </h3>
                 <p>
                     {post.body}
                 </p>
