@@ -2,12 +2,12 @@
 
 .MyPosts {
     background-color: $color-md-light;
-    height: calc(100vh - 4rem);
+    height: max-content;
     padding: $margin-tiny;
 
     .contentHolder {
         background-color: $color-white;
-        height: 70vh;
+        height: max-content;
         border-radius: 1rem;
         padding: $margin-mini;
 

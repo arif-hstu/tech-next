@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import './UpdateForm.scss';
 const UpdateForm = ({ myPost, closeUpdateModal }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const [updateMessage, setUpdateMessage] = useState(false);
 
     // handle submit data for patching
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -23,6 +24,7 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
             .then((json) => {
                 if (json.id) {
                     setIsLoading(false);
+                    setUpdateMessage(true);
                 }
             });
     };
@@ -51,13 +53,25 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
                             <p className="btnTag">NEWS</p>
                         </div>
                     </div>
-                    <div className="btnHolder">
+                    <div
+                        className="btnHolder"
+                        style={
+                            updateMessage ? { visibility: "hidden" }
+                                : { display: "visible" }
+                        }
+                    >
                         <input
-                            style={isLoading ? { display: "none" } : { display: "block" }}
+                            style={
+                                isLoading ? { display: "none" }
+                                    : { display: "block" }
+                            }
                             className="btnPrimary"
                             type="submit" />
                         <div
-                            style={isLoading ? { display: "block" } : { display: "none" }}
+                            style={
+                                isLoading ? { display: "block" }
+                                    : { display: "none" }
+                            }
                             className="loader">
                             <span className="dot"></span>
                             <div className="dots">
@@ -68,6 +82,17 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
                         </div>
                     </div>
                 </form>
+                <div
+                    className="messageHolder"
+                    style={
+                        updateMessage ? { display: "block" }
+                            : { display: "none" }
+                    }
+                >
+                    <h5>Your Post Updated Successfully!
+                        <span onClick={() => closeUpdateModal()}> Go Back!</span>
+                    </h5>
+                </div>
             </div>
         </div>
     );

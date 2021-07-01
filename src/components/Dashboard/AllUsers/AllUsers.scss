@@ -2,12 +2,13 @@
 
 .AllUsers {
     background-color: $color-md-light;
-    height: calc(100vh - 4rem);
+    height: max-content;
+    min-height: 100vh;
     padding: $margin-tiny;
 
     .contentHolder {
         background-color: $color-white;
-        height: 70vh;
+        height: max-content;
         border-radius: 1rem;
         padding: $margin-mini;
 
@@ -52,10 +53,48 @@
 
         .pageNumbers {
             display: flex;
+            justify-content: center;
+
             li {
-                margin-right: 0.5rem;
+                padding: 1.2vmin 2.2vmin;
+                border-radius: 1vmin;
+                color: $color-dark;
+                margin-right: 0;
                 cursor: pointer;
+                font-family: $font-primary-family;
+
+                &:hover {
+                    background-color: $color-secondary;
+                    color: $color-white;
+                }
             }
+        }
+
+        .formHolder {
+            form {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                h5 {
+                    margin: 0;
+                    font-family: $font-secondary-family;
+                    color: $color-secondary;
+                }
+                input {
+                    margin-top: 0.5rem;
+                    border: 2px solid $color-gray-light;
+                    height: 1rem;
+                    width: 3rem;
+                    padding: 0.5rem;
+                    font-size: 1.2rem;
+                    text-align: center;
+
+                    &:focus {
+                        outline: 2px solid $color-secondary;
+                    }
+                }
+            }
+
         }
     }
 }

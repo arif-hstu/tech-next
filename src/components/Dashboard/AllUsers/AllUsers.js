@@ -205,7 +205,7 @@ const AllUsers = () => {
                 <div className="formHolder">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="titleHolder">
-                            <h4>Post Title</h4>
+                            <h5>Users Per Page</h5>
                             <input
                                 name="test"
                                 type="number"
