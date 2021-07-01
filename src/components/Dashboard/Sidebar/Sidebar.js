@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import './Sidebar.scss';
 import addPost from '../../../resources/icons/addPost.svg';
@@ -46,7 +46,7 @@ const Sidebar = () => {
     return (
         <div className="Sidebar">
             <div className="logoHolder">
-                <a href="/" alt="TechNext">TechNext</a>
+                <Link href="/" alt="TechNext">TechNext</Link>
                 <p>MENU</p>
                 <div className="menuHolder">
                     <div

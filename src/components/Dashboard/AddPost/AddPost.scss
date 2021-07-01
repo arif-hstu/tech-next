@@ -93,3 +93,22 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+
+    .AddPost {
+        .contentHolder {
+            .formHolder {
+                form {
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-rows: 3rem 3rem auto 2rem;
+                    grid-template-areas: 
+                        'title title title title'
+                        'category category category category'
+                        'description description description description'
+                        'button button button button';
+                }
+            }
+        }
+    }
+}

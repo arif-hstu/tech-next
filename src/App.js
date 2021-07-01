@@ -48,6 +48,9 @@ function App() {
                   <Route exact path="/">
                     <Home />
                   </Route>
+                  <Route exact path="/blog">
+                    <Home />
+                  </Route>
                   <Route exact path="/dashboard">
                     <Dashboard />
                   </Route>

@@ -4,7 +4,7 @@ import { TweenMax, Power1 } from "gsap";
 
 import "./Menu.scss";
 
-const Menu = () => {
+const Menu = ({ dashboard }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleMouseDown = () => {
@@ -40,29 +40,53 @@ const Menu = () => {
                 <span />
             </div>
 
-            <div
-                id="flyoutMenu"
-                onClick={() => handleMouseDown()}
-            >
-                <h2>
-                    <Link to="/">Home</Link>
-                </h2>
-                <h2>
-                    <Link to="/career">Career</Link>
-                </h2>
-                <h2>
-                    <Link to="/pricing">Pricing</Link>
-                </h2>
-                <h2>
-                    <Link to="/about">About</Link>
-                </h2>
-                <h2>
-                    <Link to="/blog">Blog</Link>
-                </h2>
-                <h2>
-                    <Link to="/dashboard">Login</Link>
-                </h2>
-            </div>
+            {
+                dashboard ?
+                    <div
+                        id="flyoutMenu"
+                        onClick={() => handleMouseDown()}>
+                        <Link to="/">
+                            <h2>Home</h2>
+                        </Link>
+                        <Link to="#addPost">
+                            <h2>Career</h2>
+                        </Link>
+                        <Link to="/pricing">
+                            <h2>Pricing</h2>
+                        </Link>
+                        <Link to="/about">
+                            <h2>About</h2>
+                        </Link>
+                        <Link to="/blog">
+                            <h2>Blog</h2>
+                        </Link>
+                        <Link to="/dashboard">
+                            <h2>Login</h2>
+                        </Link>
+                    </div> :
+                    <div
+                        id="flyoutMenu"
+                        onClick={() => handleMouseDown()}>
+                        <Link to="/">
+                            <h2>Home</h2>
+                        </Link>
+                        <Link to="/career">
+                            <h2>Career</h2>
+                        </Link>
+                        <Link to="/pricing">
+                            <h2>Pricing</h2>
+                        </Link>
+                        <Link to="/about">
+                            <h2>About</h2>
+                        </Link>
+                        <Link to="/blog">
+                            <h2>Blog</h2>
+                        </Link>
+                        <Link to="/dashboard">
+                            <h2>Login</h2>
+                        </Link>
+                    </div>
+            }
         </div>
     );
 };

@@ -17,3 +17,16 @@
         width: 80vw;
     }
 }
+
+
+@media screen and (max-width: 620px) {
+    .Dashboard {
+        .sidebarHolder {
+            width: 10vw;
+        }
+
+        .topbarHolder {
+            width: 90vw;
+        }
+    }
+}
