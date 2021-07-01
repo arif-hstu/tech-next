@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 
 import './AddPost.scss';
 
+// custom style for modal
 const customStyles = {
     content: {
         top: '50%',
@@ -15,7 +16,7 @@ const customStyles = {
     },
 };
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+// bind modal with root element
 Modal.setAppElement('#root');
 
 const AddPost = () => {
@@ -59,7 +60,7 @@ const AddPost = () => {
                     style={customStyles}
                     contentLabel="Successful Message"
                 >
-                    <div style={{textAlign : "center"}} className="infoHolder">
+                    <div style={{ textAlign: "center" }} className="infoHolder">
                         <h3>Your Post Published Successfully!</h3>
                         <button style={{ border: 'none' }} className="btnPrimary" onClick={closeModal}>Publish More!</button>
                     </div>
