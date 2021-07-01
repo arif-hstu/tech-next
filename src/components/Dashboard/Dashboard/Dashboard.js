@@ -10,7 +10,7 @@ import './Dashboard.scss';
 export const HashContext = createContext();
 
 const Dashboard = () => {
-    const [hash, setHash] = useState(window.location.hash);
+    const [hash, setHash] = useState('#myPosts');
 
     return (
         <div className="Dashboard">

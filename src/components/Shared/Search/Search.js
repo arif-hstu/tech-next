@@ -13,18 +13,27 @@ const Search = () => {
         setSearchTerm(event.target.value);
     };
 
-    // useEffect(() => {
-    //     if (searchTerm === "" && isHidden) {
-    //         document.getElementById('placeholder').style.display = "none";
-    //     } else if (searchTerm !== "" && isHidden) {
-    //         document.getElementById('placeholder').style.display = "block";
-    //     }
-    // }, [searchTerm, isHidden]);
+    // hide placeholder if clicked on the input
+    const hideThePlaceholder = () => {
+        document.getElementById('placeholder').style.display = "none";
+    }
+
+    // show placeholder if the input is empty
+    const showThePlaceholder = () => {
+        if (searchTerm === "") {
+            document.getElementById('placeholder').style.display = "block";
+        }
+    }
 
     return (
         <div className="Search">
             <form className="searchHolder">
-                <input onBlur={() => setIsHidden(false)} onFocus={() => setIsHidden(true)} onChange={(event) => searchItem(event)} type="text" />
+                <input
+                    onBlur={() => showThePlaceholder()}
+                    onFocus={() => hideThePlaceholder()}
+                    onChange={(event) => searchItem(event)}
+                    type="text"
+                />
                 <img src={search} alt="Search" />
                 <p id="placeholder" className="placeholder">
                     Search in this page...

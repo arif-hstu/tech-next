@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import './Sidebar.scss';
-import dashboard from '../../../resources/icons/dashboard.svg';
 import addPost from '../../../resources/icons/addPost.svg';
 import myPosts from '../../../resources/icons/myPosts.svg';
 import otherUsers from '../../../resources/icons/otherUsers.svg';
@@ -50,11 +49,10 @@ const Sidebar = () => {
                 <a href="/" alt="TechNext">TechNext</a>
                 <p>MENU</p>
                 <div className="menuHolder">
-                    <div id="#myPosts" className="active" onClick={(event) => updateClass(event)}>
-                        <img src={dashboard} alt="Dashboard" />
-                        <h4>Dashboard</h4>
-                    </div>
-                    <div id="#myPosts" onClick={(event) => updateClass(event)}>
+                    <div
+                        id="#myPosts"
+                        className="active"
+                        onClick={(event) => updateClass(event)}>
                         <img src={myPosts} alt="Post" />
                         <h4>My Posts</h4>
                     </div>

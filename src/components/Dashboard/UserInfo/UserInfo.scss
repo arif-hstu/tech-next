@@ -7,9 +7,14 @@
     grid-template-columns: 0.2fr 0.7fr 1fr 0.5fr;
     align-items: center;
 
+    &:hover {
+        background-color: $color-gray-light;
+        opacity: 0.8;
+    }
+
     span {
         color: $color-gray;
         font-weight: $font-regular;
-        font-size: $font-para-size;
+        font-size: $font-para-lg-size;
     }
 }

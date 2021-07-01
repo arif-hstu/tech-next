@@ -35,7 +35,7 @@ const Navbar = () => {
                     }}>Blog</NavLink>
             </div>
             <Link
-                to="/dashboard"
+                to="/dashboard#myPosts"
                 className="btnTag"
             >Login</Link>
         </div>
