@@ -34,7 +34,7 @@
     }
 
     .btnWhite {
-        background-color: $color-info;
+        background-color: $color-secondary;
         color: $color-white;
     }
 
@@ -52,7 +52,7 @@
     }
 
     .btnWhite::after {
-        background-color: blue;
+        background-color: $color-secondary;
         opacity: 0.5;
     }
 

@@ -1,0 +1,132 @@
+.Menu {
+    #theMenu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translate3d(-100vw, 0, 0);
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #flyoutMenu {
+        width: 40vw;
+        height: 100vh;
+        background-color: #000;
+        text-align: center;
+        font-size: 1.5em;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
+        transition: border-radius 0.5s ease-in-out;
+        overflow: hidden;
+        transform: translate3d(-100vw, 0, 0);
+        padding-top: 50px;
+        z-index: 100;
+
+        h2 {
+            padding: 5px;
+            margin: 10px;
+
+            a {
+                color: #fff;
+                margin-left: 15px;
+                text-decoration: none;
+            }
+
+            &:hover {
+                padding: 4px;
+                border: 1px #fff solid;
+            }
+        }
+    }
+
+    #hambmenu {
+        position: relative;
+        width: 40px;
+        height: 45px;
+        float: left;
+        margin: 5px 15px;
+        transition: 0.5s ease-in-out;
+        cursor: pointer;
+        z-index: 1000;
+
+        span {
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            vertical-align: middle;
+            background: #333;
+            border-radius: 8px;
+            opacity: 1;
+            left: 0;
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            transition: 0.5s ease-in-out;
+
+            &:nth-child(1) {
+                top: 0px;
+            }
+
+            &:nth-child(2) {
+                top: 10px;
+            }
+
+            &:nth-child(3) {
+                top: 10px;
+            }
+
+            &:nth-child(4) {
+                top: 20px;
+            }
+        }
+    }
+
+    #hambmenu.show {
+        span {
+            background: #ddd;
+
+            &:nth-child(1) {
+                top: 18px;
+                width: 0%;
+                left: 50%;
+                opacity: 0;
+            }
+
+            &:nth-child(2) {
+                left: 2px;
+                top: 2px;
+                width: 25px;
+                transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+                transform: rotate(135deg);
+                transition-delay: 100ms;
+            }
+
+            &:nth-child(3) {
+                left: 2px;
+                top: 19px;
+                width: 25px;
+                transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+                transform: rotate(45deg);
+                transition-delay: 50ms;
+            }
+
+            &:nth-child(4) {
+                left: 6px;
+                top: 10px;
+                width: 40px;
+                transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+                transform: rotate(180deg);
+                transition-delay: 150ms;
+            }
+        }
+    }
+
+    @media screen and (max-width: 620px) {
+        #flyoutMenu {
+            width: 100vw;
+        }
+    }
+
+}

@@ -23,6 +23,7 @@ const AllUsers = () => {
     ));
     const [searchedUsers, setSearchedUsers] = useState([]);
 
+    // handle form data
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         // store pageSize in localStorage

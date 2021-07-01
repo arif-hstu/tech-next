@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Menu from '../../Shared/Menu/Menu';
 import Navbar from '../../Shared/Navbar/Navbar';
 import Banner from '../../Shared/Banner/Banner';
 import Search from '../../Shared/Search/Search';
@@ -12,6 +13,7 @@ import './Home.scss';
 const Home = () => {
     return (
         <div className="Home">
+            <Menu />
             <Navbar />
             <Banner />
             <Search />
