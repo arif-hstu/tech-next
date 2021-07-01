@@ -37,10 +37,15 @@ const PostInfo = ({ myPost }) => {
             });
     }
 
-    // close modal
-    function closeModal() {
+    // close message Modal
+    const closeModal = () => {
         setIsOpen(false);
     }
+
+    // close update post Modal
+    const closeUpdateModal = () => {
+        setIsUpdateModalOpen(false)
+    }    
     return (
         <div className="PostInfo">
             {/* Modal to show messages */}
@@ -60,7 +65,7 @@ const PostInfo = ({ myPost }) => {
                 style={customStyles}
                 contentLabel="Message"
             >
-                <UpdateForm />
+                <UpdateForm closeUpdateModal={closeUpdateModal}/>
                 
             </Modal>
 
