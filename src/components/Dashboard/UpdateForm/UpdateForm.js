@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import './UpdateForm.scss';
-const UpdateForm = ({ closeUpdateModal }) => {
+const UpdateForm = ({ myPost, closeUpdateModal }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     // handle submit data for patching
@@ -25,38 +25,20 @@ const UpdateForm = ({ closeUpdateModal }) => {
                     setIsLoading(false);
                 }
             });
-
-
-
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify({
-                title: data.postTitle,
-                body: data.postBody
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.id) {
-                    setIsLoading(false);
-                }
-            })
     };
+
     return (
         <div className="UpdateForm">
-            <span onClick={()=> closeUpdateModal()}>X</span>
+            <span onClick={() => closeUpdateModal()}>X</span>
             <div className="formHolder">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="titleHolder">
                         <h4>Post Title</h4>
-                        <input defaultValue="" {...register("postTitle")} />
+                        <input defaultValue={myPost.title} {...register("postTitle")} />
                     </div>
                     <div className="descriptionHolder">
                         <h4>Description</h4>
-                        <textarea {...register("postBody", { required: true })} />
+                        <textarea defaultValue={myPost.body} {...register("postBody", { required: true })} />
                         {errors.exampleRequired && <span>This field is required</span>}
                     </div>
                     <div className="categoryHolder">

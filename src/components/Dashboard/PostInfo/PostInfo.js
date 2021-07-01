@@ -19,22 +19,21 @@ const customStyles = {
 };
 
 const PostInfo = ({ myPost }) => {
+    const [isLoading, setIsLoading] = useState(false);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
     const [status, setStatus] = useState({ type: "" });
 
     // handle detele post
     const deletePost = () => {
+        setIsLoading(true);
         // Simple DELETE request with fetch
         fetch('https://jsonplaceholder.typicode.com/posts/1', { method: 'DELETE' })
             .then(() => {
-                setStatus({ type: 'delete'});
+                setStatus({ type: 'delete' });
                 setIsOpen(true);
+                setIsLoading(false);
             })
-            .then(err => {
-                setStatus({ type: 'deleteFailed'});
-                setIsOpen(true);
-            });
     }
 
     // close message Modal
@@ -45,7 +44,7 @@ const PostInfo = ({ myPost }) => {
     // close update post Modal
     const closeUpdateModal = () => {
         setIsUpdateModalOpen(false)
-    }    
+    }
     return (
         <div className="PostInfo">
             {/* Modal to show messages */}
@@ -65,8 +64,8 @@ const PostInfo = ({ myPost }) => {
                 style={customStyles}
                 contentLabel="Message"
             >
-                <UpdateForm closeUpdateModal={closeUpdateModal}/>
-                
+                <UpdateForm myPost={myPost} closeUpdateModal={closeUpdateModal} />
+
             </Modal>
 
             <span>{myPost.id}</span>
@@ -77,8 +76,29 @@ const PostInfo = ({ myPost }) => {
                 <span>{myPost.body.slice(0, 25) + '...'}</span>
             </Link>
             <span className="btnTag">Catagory</span>
-            <span onClick={()=> setIsUpdateModalOpen(true)} className="btnSuccess">Update</span>
-            <span onClick={() => deletePost(myPost.id)} className="btnDanger">Delete</span>
+            <div className="updateBtnHolder loaderHolder">
+                <span
+                    onClick={() => setIsUpdateModalOpen(true)}
+                    className="btnSuccess"
+                >Update</span>
+            </div>
+            <div className="deleteBtnHolder loaderHolder">
+                <span
+                    onClick={() => deletePost(myPost.id)}
+                    className="btnDanger"
+                    style={
+                        isLoading ?
+                            { visibility: "hidden" } : { visibility: "visible" }
+                    }
+                >Delete</span>
+                <div
+                    class="loader"
+                    style={
+                        isLoading ?
+                            { visibility: "visible" } : { visibility: "hidden" }
+                    }
+                ></div>
+            </div>
         </div>
     );
 };
