@@ -1,12 +1,32 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import './UpdateForm.scss';
 const UpdateForm = () => {
     const [isLoading, setIsLoading] = useState(false);
 
+    // handle submit data for patching
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data) => {
+        setIsLoading(true);
+        
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            method: 'PATCH',
+            body: JSON.stringify({
+                title: 'foo',
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                if (json.id) {
+                    setIsLoading(false);
+                }
+            });
+
+
 
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -21,7 +41,7 @@ const UpdateForm = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.id) {
-                    console.log('arif')
+                    setIsLoading(false);
                 }
             })
     };
@@ -50,9 +70,11 @@ const UpdateForm = () => {
                     </div>
                     <div className="btnHolder">
                         <input
+                            style={isLoading ? { display: "none" } : { display: "block" }}
                             className="btnPrimary"
                             type="submit" />
                         <div
+                            style={isLoading ? { display: "block" } : { display: "none" }}
                             className="loader">
                             <span className="dot"></span>
                             <div className="dots">

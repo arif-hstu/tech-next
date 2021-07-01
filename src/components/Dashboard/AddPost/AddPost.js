@@ -38,8 +38,8 @@ const AddPost = () => {
             }
         })
             .then(response => response.json())
-            .then(data => {
-                if (data.id) {
+            .then(json => {
+                if (json.id) {
                     setIsLoading(false);
                     setIsOpen(true);
                 }
