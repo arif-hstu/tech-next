@@ -38,7 +38,7 @@ function App() {
   }, [pageCount]);
 
   return (
-    <div className="App">
+    <div id="App" className="App">
       <Router>
         <PageCountContext.Provider value={[pageCount, setPageCount]}>
           <PostsContext.Provider value={posts}>

@@ -16,7 +16,7 @@ const Blog = ({ post, color }) => {
                 {post.id}
             </div>
             <div onClick={(event) => pushLocation(event)} className="infoHolder">
-                <Link href="/" className="btnTag">News</Link>
+                <Link to="/" className="btnTag">News</Link>
                 <h3>
                     {post.title}
                 </h3>

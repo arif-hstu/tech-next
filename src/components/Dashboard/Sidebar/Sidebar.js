@@ -46,7 +46,7 @@ const Sidebar = () => {
     return (
         <div className="Sidebar">
             <div className="logoHolder">
-                <Link href="/" alt="TechNext">TechNext</Link>
+                <Link to="/" alt="TechNext">TechNext</Link>
                 <p>MENU</p>
                 <div className="menuHolder">
                     <div

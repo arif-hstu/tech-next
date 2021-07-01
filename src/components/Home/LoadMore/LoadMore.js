@@ -3,7 +3,7 @@ import { PageCountContext } from '../../../App';
 import { Link } from 'react-router-dom';
 
 import './LoadMore.scss';
-const LoadMore = () => {
+const LoadMore = ({ addPost }) => {
     const [pageCount, setPageCount] = useContext(PageCountContext);
     const loadMore = () => {
         let tempCount = pageCount;

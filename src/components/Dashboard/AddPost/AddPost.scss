@@ -6,6 +6,11 @@
     padding: $margin-tiny;
 
     .contentHolder {
+        background-color: $color-white;
+        height: 70vh;
+        border-radius: 1rem;
+        padding: $margin-mini;
+
         .formHolder {
             form {
                 display: grid;
@@ -71,9 +76,67 @@
                     grid-area: button;
                     display: flex;
                     justify-content: center;
+                    position: relative;
 
                     .btnPrimary {
-                        padding: 0.5rem 2rem;
+                        position: absolute;
+                        border: none;
+                        cursor: pointer;
+                        padding: 0.8rem 2rem;
+                    }
+
+                    .loader {
+                        position: absolute;
+                        top: 20%;
+                        width: 130px;
+                        height: 40px;
+                        background: white;
+                        filter: contrast(20);
+                        display: flex;
+                        justify-content: center;
+
+                        .dot {
+                            position: absolute;
+                            width: 16px;
+                            height: 16px;
+                            top: 12px;
+                            left: 15px;
+                            filter: blur(0px);
+                            background: #3897F4;
+                            border-radius: 50%;
+                            transform: translateX(0);
+                            animation: dot 2.8s infinite;
+                        }
+
+                        .dots {
+                            transform: translateX(0);
+                            margin-top: 12px;
+                            margin-left: 38px;
+                            animation: dots 2.8s infinite;
+
+                            span {
+                                display: block;
+                                float: left;
+                                width: 16px;
+                                height: 16px;
+                                margin-left: 10px;
+                                filter: blur(4px);
+                                background: #3897F4;
+                                border-radius: 50%;
+                            }
+
+                            @keyframes dot {
+                                50% {
+                                    transform: translateX(85px)
+                                }
+                            }
+
+                            @keyframes dots {
+                                50% {
+                                    transform: translateX(-31px)
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -84,25 +147,19 @@
                     color: $color-gray;
                     font-size: $font-para-size;
                 }
-
-                .btnPrimary {
-                    border: none;
-                    cursor: pointer;
-                }
             }
         }
     }
 }
 
 @media screen and (max-width: 768px) {
-
     .AddPost {
         .contentHolder {
             .formHolder {
                 form {
                     grid-template-columns: repeat(4, 1fr);
                     grid-template-rows: 3rem 3rem auto 2rem;
-                    grid-template-areas: 
+                    grid-template-areas:
                         'title title title title'
                         'category category category category'
                         'description description description description'

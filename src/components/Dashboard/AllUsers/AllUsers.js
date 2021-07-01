@@ -185,7 +185,7 @@ const AllUsers = () => {
                 </div>
                 {
                     usersForPage[0] &&
-                    usersForPage.map((user, index) => <Link to={`/user/${user.id}`}><UserInfo key={index} user={user} /></Link>)
+                    usersForPage.map((user, index) => <Link key={index} to={`/user/${user.id}`}><UserInfo user={user} /></Link>)
                 }
                 <ul className="pageNumbers">
                     <li onClick={() =>
