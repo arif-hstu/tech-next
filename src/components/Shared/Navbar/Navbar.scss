@@ -49,3 +49,17 @@
         }
     }
 }
+
+@media screen and (max-width: 620px) {
+    .Navbar {
+        justify-content: flex-end;
+
+        &> :last-child {
+            display: none;
+        }
+
+        .navHolder {
+            display: none;
+        }
+    }
+}

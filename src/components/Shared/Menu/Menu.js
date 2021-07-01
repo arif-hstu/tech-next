@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { TweenMax, Power1 } from "gsap";
+
 import "./Menu.scss";
 
 const Menu = () => {
@@ -43,16 +45,22 @@ const Menu = () => {
                 onClick={() => handleMouseDown()}
             >
                 <h2>
-                    <a href="/#">Home</a>
+                    <Link to="/">Home</Link>
                 </h2>
                 <h2>
-                    <a href="/#">Portfolio</a>
+                    <Link to="/career">Career</Link>
                 </h2>
                 <h2>
-                    <a href="/#">About</a>
+                    <Link to="/pricing">Pricing</Link>
                 </h2>
                 <h2>
-                    <a href="/#">Contact</a>
+                    <Link to="/about">About</Link>
+                </h2>
+                <h2>
+                    <Link to="/blog">Blog</Link>
+                </h2>
+                <h2>
+                    <Link to="/dashboard">Login</Link>
                 </h2>
             </div>
         </div>

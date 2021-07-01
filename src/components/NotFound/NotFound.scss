@@ -1,2 +1,13 @@
 .NotFound {
+    &> :first-child {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .NotFound {
+        &> :first-child {
+            display: block;
+        }
+    }
 }
