@@ -11,7 +11,7 @@ import { SearchContext } from '../../../App';
 const AllUsers = () => {
     const listItems = [];
 
-    const [searchTerm, setSearchTerm] = useContext(SearchContext);
+    const [searchTerm] = useContext(SearchContext);
 
     const [users, setUsers] = useState([]);
     const [sortedUsers, setSortedUsers] = useState([]);
@@ -24,7 +24,7 @@ const AllUsers = () => {
     const [searchedUsers, setSearchedUsers] = useState([]);
 
     // handle form data
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         // store pageSize in localStorage
         setPageSize(data.length);

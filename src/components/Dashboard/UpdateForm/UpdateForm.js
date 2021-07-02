@@ -7,7 +7,7 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
     const [updateMessage, setUpdateMessage] = useState(false);
 
     // handle submit data for patching
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         setIsLoading(true);
 

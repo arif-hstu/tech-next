@@ -27,7 +27,7 @@ const Topbar = () => {
                         loggedIn.id ? loggedIn.name
                             : "Lorem Ipsum"
                     }</h4>
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                         <span onClick={() => logout()}>Logout</span>
                     </div>
                 </div>

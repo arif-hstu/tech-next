@@ -23,7 +23,7 @@ const AddPost = () => {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         setIsLoading(true);
 

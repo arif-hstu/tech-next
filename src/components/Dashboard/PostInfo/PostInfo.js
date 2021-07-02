@@ -92,7 +92,7 @@ const PostInfo = ({ myPost }) => {
                     }
                 >Delete</span>
                 <div
-                    class="loader"
+                    className="loader"
                     style={
                         isLoading ?
                             { visibility: "visible" } : { visibility: "hidden" }

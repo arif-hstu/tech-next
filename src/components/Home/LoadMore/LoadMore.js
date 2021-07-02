@@ -14,6 +14,7 @@ const LoadMore = ({ addPost }) => {
         <div className='LoadMore'>
             <div className="btnHolder">
                 <Link
+                    to=""
                     className="btn btnWhite btnAnimate"
                     onClick={() => loadMore()}
                 >load More</Link>
