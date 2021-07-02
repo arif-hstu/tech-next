@@ -1,18 +1,24 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { PostsContext } from '../../../../App';
 import './FeaturedBlog.scss';
 
 const FeaturedBlog = ({ userPosts }) => {
+    const history = useHistory();
     const posts = useContext(PostsContext);
+
+    // route to the post
+    const pushLocation = (id) => {
+        history.push(`/post/${id}`);
+    }
 
     return (
         <div className="FeaturedBlog">
-            <Link to={
+            <div onClick={
                 userPosts ?
-                    `post/${userPosts[0] && userPosts[0].id}` :
-                    `post/${posts[0] && posts[0].id}`
+                    () => pushLocation(userPosts[0] && userPosts[0].id) :
+                    () => pushLocation(posts[0] && posts[0].id)
             }>
                 <div className="imgHolder">
                     {
@@ -21,22 +27,20 @@ const FeaturedBlog = ({ userPosts }) => {
                             posts[0] && posts[0].id
                     }
                 </div>
-            </Link>
+            </div>
             <div className="infoHolder">
                 <a href="/" className="btnTag">News</a>
-                <Link to={
+                <h2 onClick={
                     userPosts ?
-                        `post/${userPosts[0] && userPosts[0].id}` :
-                        `post/${posts[0] && posts[0].id}`
+                        () => pushLocation(userPosts[0] && userPosts[0].id) :
+                        () => pushLocation(posts[0] && posts[0].id)
                 }>
-                    <h2>
-                        {
-                            userPosts ?
-                                userPosts[0] && userPosts[0].title :
-                                posts[0] && posts[0].title
-                        }
-                    </h2>
-                </Link>
+                    {
+                        userPosts ?
+                            userPosts[0] && userPosts[0].title :
+                            posts[0] && posts[0].title
+                    }
+                </h2>
                 <p>
                     {
                         userPosts ?

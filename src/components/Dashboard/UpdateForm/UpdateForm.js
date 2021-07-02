@@ -11,10 +11,12 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
     const onSubmit = (data) => {
         setIsLoading(true);
 
-        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${data.postId}`, {
             method: 'PATCH',
             body: JSON.stringify({
-                title: 'foo',
+                id: data.postId,
+                title: data.postTitle,
+                body: data.postBody,
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -34,25 +36,23 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
             <span onClick={() => closeUpdateModal()}>X</span>
             <div className="formHolder">
                 <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="postIdHolder">
+                        <h4>Post Id</h4>
+                        <input defaultValue={parseInt(myPost.id)} {...register("postId")} />
+                    </div>
+                    <div className="descriptionHolder">
+                        <h4>Description</h4>
+                        <textarea
+                            defaultValue={myPost.body}
+                            {...register("postBody", { required: true })}
+                        />
+                        {errors.exampleRequired && <span>This field is required</span>}
+                    </div>
                     <div className="titleHolder">
                         <h4>Post Title</h4>
                         <input defaultValue={myPost.title} {...register("postTitle")} />
                     </div>
-                    <div className="descriptionHolder">
-                        <h4>Description</h4>
-                        <textarea defaultValue={myPost.body} {...register("postBody", { required: true })} />
-                        {errors.exampleRequired && <span>This field is required</span>}
-                    </div>
-                    <div className="categoryHolder">
-                        <h4>Select Category</h4>
-                        <div className="tagHolder">
-                            <p className="btnTag">NEWS</p>
-                            <p className="btnTag">Tech</p>
-                            <p className="btnTag">NEWS</p>
-                            <p className="btnTag">NEWS</p>
-                            <p className="btnTag">NEWS</p>
-                        </div>
-                    </div>
+                    
                     <div
                         className="btnHolder"
                         style={

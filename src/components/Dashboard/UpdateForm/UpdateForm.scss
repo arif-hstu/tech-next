@@ -20,20 +20,21 @@
 
     .formHolder {
         position: relative;
+
         form {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: 3rem 7rem 2rem;
-            grid-column-gap: 1rem;
-            grid-row-gap: 1rem;
+            grid-column-gap: 0.5rem;
+            grid-row-gap: 0.5rem;
             grid-template-areas:
+                'postId postId description description'
                 'title title description description'
-                'category category description description'
                 'button button button button';
 
             .titleHolder>input {
                 padding-left: 0.5rem;
-                width: 100%;
+                width: 90%;
                 background-color: $color-gray-light;
                 border: none;
                 height: 1.5rem;
@@ -64,18 +65,25 @@
 
             .descriptionHolder {
                 grid-area: description;
+
+                textarea {
+                    font-family: $font-primary-family;
+                }
             }
 
-            .categoryHolder {
-                grid-area: category;
+            .postIdHolder {
+                grid-area: postId;
 
-                .tagHolder {
-                    .btnTag {
-                        float: left;
-                        margin-right: 0.5rem;
-                        padding: 0.2rem 0.5rem;
-                        font-size: 8px;
-                        background-color: $color-gray-light;
+                &>input {
+                    padding-left: 0.5rem;
+                    width: 90%;
+                    background-color: $color-gray-light;
+                    border: none;
+                    height: 1.5rem;
+                    border-radius: 0.5rem;
+
+                    &:focus {
+                        outline: none;
                     }
                 }
             }
@@ -165,7 +173,7 @@
             h5 {
                 margin: 0;
                 color: $color-dark;
-                
+
                 span {
                     cursor: pointer;
                 }

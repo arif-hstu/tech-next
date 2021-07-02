@@ -25,10 +25,10 @@ const PostInfo = ({ myPost }) => {
     const [status, setStatus] = useState({ type: "" });
 
     // handle detele post
-    const deletePost = () => {
+    const deletePost = (postId) => {
         setIsLoading(true);
         // Simple DELETE request with fetch
-        fetch('https://jsonplaceholder.typicode.com/posts/1', { method: 'DELETE' })
+        fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, { method: 'DELETE' })
             .then(() => {
                 setStatus({ type: 'delete' });
                 setIsOpen(true);

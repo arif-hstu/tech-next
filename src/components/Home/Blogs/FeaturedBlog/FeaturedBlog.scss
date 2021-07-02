@@ -6,6 +6,10 @@
 
     &>.infoHolder {
         width: 40%;
+
+        h2 {
+            cursor: pointer;
+        }
     }
 
     & > *:first-child {

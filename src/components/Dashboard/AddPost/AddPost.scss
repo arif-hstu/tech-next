@@ -57,6 +57,10 @@
 
                 .descriptionHolder {
                     grid-area: description;
+
+                    textarea {
+                        font-family: $font-primary-family;
+                    }
                 }
 
                 .categoryHolder {
