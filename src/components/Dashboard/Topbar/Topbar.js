@@ -20,7 +20,7 @@ const Topbar = () => {
 
     return (
         <div className="Topbar">
-            <DashboardSearch />
+            <DashboardSearch allUsers={'allUsers'}/>
             <div className="userName">
                 <div className="dropdown">
                     <h4>{

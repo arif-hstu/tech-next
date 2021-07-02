@@ -7,11 +7,13 @@ import ascendant from '../../../resources/icons/ascendant.svg';
 import descendant from '../../../resources/icons/descendant.svg';
 import './AllUsers.scss';
 import { SearchContext } from '../../../App';
+import { SearchOnContext } from '../Dashboard/Dashboard';
 
 const AllUsers = () => {
     const listItems = [];
 
     const [searchTerm] = useContext(SearchContext);
+    const [searchOn] = useContext(SearchOnContext);
 
     const [users, setUsers] = useState([]);
     const [sortedUsers, setSortedUsers] = useState([]);
@@ -126,11 +128,21 @@ const AllUsers = () => {
         const newArray = tempArray.filter(user => {
             if (searchTerm === "") {
                 return [];
-            } else if (user.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                return user;
+            } else if (searchOn === 'name') {
+                if (user.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    return user;
+                }
+            } else if (searchOn === 'email') {
+                if (user.email.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    return user;
+                }
+            } else if (searchOn === 'website') {
+                if (user.website.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    return user;
+                }
             }
         })
-        setSearchedUsers(newArray);
+        setSearchedUsers(newArray, searchOn);
 
         // store sorting criteria in local storage
         const keyword = localStorage.getItem('keyword');

@@ -8,30 +8,34 @@ import AllUsers from '../AllUsers/AllUsers';
 import './Dashboard.scss';
 
 export const HashContext = createContext();
+export const SearchOnContext = createContext();
 
 const Dashboard = () => {
     const [hash, setHash] = useState('#myPosts');
+    const [searchOn, setSearchOn] = useState('name');
 
     return (
         <div className="Dashboard">
             <HashContext.Provider value={[hash, setHash]}>
-                <div className="sidebarHolder">
-                    <Sidebar />
-                </div>
-                <div className="contentHolder">
-                    <div className="topbarHolder">
-                        <Topbar />
+                <SearchOnContext.Provider value={[searchOn, setSearchOn]}>
+                    <div className="sidebarHolder">
+                        <Sidebar />
                     </div>
-                    {
-                        hash === '#myPosts' && <MyPosts />
-                    }
-                    {
-                        hash === '#addPost' && <AddPost />
-                    }
-                    {
-                        hash === '#users' && <AllUsers />
-                    }
-                </div>
+                    <div className="contentHolder">
+                        <div className="topbarHolder">
+                            <Topbar />
+                        </div>
+                        {
+                            hash === '#myPosts' && <MyPosts />
+                        }
+                        {
+                            hash === '#addPost' && <AddPost />
+                        }
+                        {
+                            hash === '#users' && <AllUsers />
+                        }
+                    </div>
+                </SearchOnContext.Provider>
             </HashContext.Provider>
         </div >
     );
