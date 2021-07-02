@@ -36,7 +36,7 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
             <span onClick={() => closeUpdateModal()}>X</span>
             <div className="formHolder">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="postIdHolder">
+                    <div className="postIdHolder">
                         <h4>Post Id</h4>
                         <input defaultValue={parseInt(myPost.id)} {...register("postId")} />
                     </div>
@@ -52,7 +52,7 @@ const UpdateForm = ({ myPost, closeUpdateModal }) => {
                         <h4>Post Title</h4>
                         <input defaultValue={myPost.title} {...register("postTitle")} />
                     </div>
-                    
+
                     <div
                         className="btnHolder"
                         style={
