@@ -3,7 +3,7 @@ Welcome to TechNext — 2 Million+ users like you from all around the globe use
 our products regularly.
 
 ## Live app:
-https://arif-test-homejam.netlify.app
+https://arif-tech-next.netlify.app
 
 ## What technology used in this project?
 
