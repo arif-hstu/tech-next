@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { SearchContext } from '../../../App';
+import { LoggedInContext, SearchContext } from '../../../App';
 
 import PostInfo from '../PostInfo/PostInfo';
 import './MyPosts.scss';
@@ -7,10 +7,10 @@ import './MyPosts.scss';
 const MyPosts = () => {
     const [myPosts, setMyPosts] = useState([]);
     const [searchTerm] = useContext(SearchContext);
-
+    const [loggedIn] = useContext(LoggedInContext);
     // fetch data from the the server
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/posts?userId=2`)
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${parseInt(loggedIn.id)}`)
             .then(res => res.json())
             .then(data => {
                 setMyPosts(data);

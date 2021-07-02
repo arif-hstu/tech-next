@@ -5,7 +5,7 @@ import { LoggedInContext } from '../../../../App';
 
 import './LoginForm.scss';
 const LoginForm = () => {
-    const [setLoggedIn] = useContext(LoggedInContext);
+    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
 
     // handle submit data for logging in
     const { register, handleSubmit } = useForm();
