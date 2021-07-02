@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from 'react-router-dom';
 import { TweenMax, Power1 } from "gsap";
 
 import "./Menu.scss";
+import { LoggedInContext } from "../../../App";
 
 const Menu = ({ dashboard }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [loggedIn] = useContext(LoggedInContext);
 
     const handleMouseDown = () => {
         setIsVisible(!isVisible);
@@ -61,7 +63,10 @@ const Menu = ({ dashboard }) => {
                             <h2>Blog</h2>
                         </Link>
                         <Link to="/dashboard">
-                            <h2>Login</h2>
+                            <h2>{
+                                loggedIn.id ? loggedIn.name
+                                    : 'Login'
+                            }</h2>
                         </Link>
                     </div> :
                     <div
@@ -83,7 +88,10 @@ const Menu = ({ dashboard }) => {
                             <h2>Blog</h2>
                         </Link>
                         <Link to="/dashboard">
-                            <h2>Login</h2>
+                            <h2>{
+                                loggedIn.id ? loggedIn.name
+                                    : 'Login'
+                            }</h2>
                         </Link>
                     </div>
             }

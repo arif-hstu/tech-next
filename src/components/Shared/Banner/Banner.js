@@ -14,8 +14,8 @@ const Banner = ({ notFound }) => {
                             </h1>
                         </div> :
                         <h1>
-                            <span>Latest News</span><br />
-                            Updates
+                            <span>Latest Blog</span><br />
+                            Posts
                         </h1>
                 }
             </div>

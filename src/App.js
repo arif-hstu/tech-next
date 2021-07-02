@@ -24,11 +24,11 @@ export const LoggedInContext = createContext();
 function App() {
   const [posts, setPosts] = useState([]);
   const [pageCount, setPageCount] = useState(1);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [userPosts, setUserPosts] = useState([]);
   const [loggedIn, setLoggedIn] = useState({
-    loggedInId: "",
-    loggedInName: ""
+    id: localStorage.getItem("userId") || 2,
+    name: localStorage.getItem("userName") || 'Ervin Howell'
   });
 
   useEffect(() => {

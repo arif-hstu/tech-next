@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { LoggedInContext } from '../../../App';
 
 import './Navbar.scss';
 const Navbar = () => {
+    const [loggeIn] = useContext(LoggedInContext);
     return (
         <div className="Navbar">
             <div className="logoHolder">
@@ -37,19 +39,12 @@ const Navbar = () => {
             <Link
                 to="/dashboard#myPosts"
                 className="btnTag"
-            >Login</Link>
+            >{
+                    loggeIn.id ? loggeIn.name
+                        : 'Login'
+                }</Link>
         </div>
     );
 };
 
-<NavLink
-    to="/faq"
-    activeStyle={{
-        fontWeight: "bold",
-        color: "red"
-    }}
->
-    FAQs
-</NavLink>
-
-export default Navbar;
+export default Navbar; // shared

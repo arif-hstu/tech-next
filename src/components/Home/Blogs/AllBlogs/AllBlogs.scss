@@ -6,4 +6,24 @@
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     grid-column-gap: 2rem;
     grid-row-gap: 4rem;
+
+    // apply repeatative background color the imgHolder
+    &> :nth-child(3n-1) {
+        .imgHolder {
+            background-color: #3897F4;
+        }
+    }
+
+    &> :nth-child(3n-2) {
+        .imgHolder {
+            background-color: #57CAA7;
+        }
+    }
+
+    &> :nth-child(5n-1) {
+        .imgHolder {
+            background-color: #F6AF60;
+        }
+    }
+
 }

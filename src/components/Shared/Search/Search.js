@@ -6,7 +6,7 @@ import './Search.scss';
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useContext(SearchContext);
-    const [isHidden, setIsHidden] = useState(false);
+    // const [isHidden, setIsHidden] = useState(false);
 
     const searchItem = (event) => {
         event.preventDefault();
