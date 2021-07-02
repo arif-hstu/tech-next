@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { SearchContext } from '../../../App';
 
 import PostInfo from '../PostInfo/PostInfo';
 import './MyPosts.scss';
 
 const MyPosts = () => {
     const [myPosts, setMyPosts] = useState([]);
+    const [searchTerm] = useContext(SearchContext);
 
+    // fetch data from the the server
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts?userId=2`)
             .then(res => res.json())
@@ -29,7 +32,13 @@ const MyPosts = () => {
                     </span>
                 </div>
                 {
-                    myPosts.length && myPosts.map(myPost => <PostInfo key={myPost.id} myPost={myPost} />)
+                    myPosts.length && myPosts.filter(post => {
+                        if (searchTerm === "") {
+                            return post;
+                        } else if (post.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+                            return post;
+                        }
+                    }).map(myPost => <PostInfo key={myPost.id} myPost={myPost} />)
                 }
             </div>
         </div>
