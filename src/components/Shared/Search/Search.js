@@ -35,7 +35,7 @@ const Search = () => {
                 />
                 <img src={search} alt="Search" />
                 <p id="placeholder" className="placeholder">
-                    Search in this page...
+                    Search posts except Featured Post...
                 </p>
             </form>
         </div>
