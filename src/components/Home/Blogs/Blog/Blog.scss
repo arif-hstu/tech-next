@@ -13,7 +13,7 @@
         height: 100%;
     }
 
-    & > .infoHolder {
+    &>.infoHolder {
         margin-top: 2rem;
 
         & :nth-child(2) {
@@ -46,4 +46,17 @@
             align-items: flex-start;
         }
     }
+}
+
+@media only screen and (max-width: 380px) {
+    .Blog {
+        .imgHolder {
+            width: 80%;
+        }
+
+        .infoHolder {
+            width: 80%;
+        }
+    }
+
 }
