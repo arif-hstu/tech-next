@@ -18,9 +18,9 @@ const AllUsers = () => {
     const [usersForPage, setUsersForPage] = useState([]);
     const [pages, setPages] = useState([]);
     const [pageId, setPageId] = useState([1]);
-    const [pageSize, setPageSize] = useState((
+    const [pageSize, setPageSize] = useState(
         localStorage.getItem('pageSize') || 4
-    ));
+    );
     const [searchedUsers, setSearchedUsers] = useState([]);
 
     // handle form data
@@ -83,15 +83,16 @@ const AllUsers = () => {
         setPageId(pageNumber);
     }
 
+    // funciton to sort data depending upon user selected criteria
     const sortData = (keyword, order, data) => {
         let toBeSorted;
-
         // determine which data to be sorted
         if (searchTerm !== "") {
             toBeSorted = [...searchedUsers];
         } else {
             data ? toBeSorted = [...data] : toBeSorted = [...users];
         }
+        // store sorted data
         const sorted = toBeSorted.slice().sort((firstUser, secondUser) => {
             const keywordOfFirst = firstUser[keyword];
             const keywordOfSecond = secondUser[keyword];
@@ -105,6 +106,7 @@ const AllUsers = () => {
             }
             return 0;
         })
+
         setSortedUsers(sorted);
         setUsersForPage(sorted.slice(0, 3));
 
@@ -130,8 +132,10 @@ const AllUsers = () => {
         })
         setSearchedUsers(newArray);
 
+        // store sorting criteria in local storage
         const keyword = localStorage.getItem('keyword');
         const sortBy = localStorage.getItem('order');
+
         sortData(keyword, sortBy, newArray);
 
         // count the temp page count for pagination

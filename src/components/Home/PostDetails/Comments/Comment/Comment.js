@@ -2,7 +2,6 @@ import React from 'react';
 
 import './Comment.scss';
 const Comment = ({ commentDt }) => {
-    console.log(commentDt.title)
     return (
         <div className="Comment">
             <hr />

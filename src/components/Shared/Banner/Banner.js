@@ -6,6 +6,7 @@ const Banner = ({ notFound }) => {
         <div className="Banner">
             <div className="heading">
                 {
+                    // conditionally render headline
                     notFound ?
                         <div className="notFound">
                             <h1>

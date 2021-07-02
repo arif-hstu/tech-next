@@ -27,6 +27,7 @@ const AddPost = () => {
     const onSubmit = (data) => {
         setIsLoading(true);
 
+        // send POST request to the server
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             body: JSON.stringify({
@@ -46,6 +47,7 @@ const AddPost = () => {
             })
     };
 
+    // function to close Modal
     function closeModal() {
         setIsOpen(false);
     }
@@ -72,11 +74,13 @@ const AddPost = () => {
                             <h4>Post Title</h4>
                             <input defaultValue="" {...register("postTitle")} />
                         </div>
+
                         <div className="descriptionHolder">
                             <h4>Description</h4>
                             <textarea {...register("postBody", { required: true })} />
                             {errors.exampleRequired && <span>This field is required</span>}
                         </div>
+
                         <div className="categoryHolder">
                             <h4>Select Category</h4>
                             <div className="tagHolder">
@@ -92,7 +96,6 @@ const AddPost = () => {
                                 style={isLoading ? { display: "none" } : { display: "block" }}
                                 className="btnPrimary"
                                 type="submit" />
-
                             <div
                                 style={isLoading ? { display: "block" } : { display: "none" }}
                                 className="loader">

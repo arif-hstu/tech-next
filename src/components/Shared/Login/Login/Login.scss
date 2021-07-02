@@ -1,13 +1,14 @@
 .Login {
     height: 80vh;
-    & > :first-child {
+
+    &> :first-child {
         display: none;
     }
 }
 
 @media screen and (max-width: 620px) {
     .Login {
-        & > :first-child {
+        &> :first-child {
             display: block;
         }
     }

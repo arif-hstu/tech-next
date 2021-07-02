@@ -1,8 +1,6 @@
 import React from 'react';
 
-import './ModalContent.scss';
 const ModalContent = ({ status, closeModal }) => {
-    console.log('status................', status)
     return (
         <div className="ModalContent">
             <div style={{ textAlign: "center" }} className="infoHolder">
@@ -36,4 +34,4 @@ const ModalContent = ({ status, closeModal }) => {
     );
 };
 
-export default ModalContent;
+export default ModalContent; 

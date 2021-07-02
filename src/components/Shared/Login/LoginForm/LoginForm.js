@@ -5,10 +5,10 @@ import { LoggedInContext } from '../../../../App';
 
 import './LoginForm.scss';
 const LoginForm = () => {
-    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+    const [setLoggedIn] = useContext(LoggedInContext);
 
     // handle submit data for logging in
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         fetch(`https://jsonplaceholder.typicode.com/users/${data.userId}`)
             .then(res => res.json())

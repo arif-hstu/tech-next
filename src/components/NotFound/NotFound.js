@@ -8,7 +8,7 @@ const NotFound = ({ children }) => {
         <div className="NotFound">
             <Menu />
             <Navbar />
-            { children }
+            {children}
         </div>
     );
 };

@@ -31,6 +31,7 @@ function App() {
     name: localStorage.getItem("userName") || 'Ervin Howell'
   });
 
+  // fetch post data from the server
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts?_page=${pageCount}&_limit=10`)
       .then(res => res.json())

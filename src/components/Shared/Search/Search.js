@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { SearchContext } from '../../../App';
 
 import search from '../../../resources/icons/search.svg';
@@ -6,7 +6,6 @@ import './Search.scss';
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useContext(SearchContext);
-    // const [isHidden, setIsHidden] = useState(false);
 
     const searchItem = (event) => {
         event.preventDefault();

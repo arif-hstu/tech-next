@@ -6,7 +6,7 @@ const Comments = ({ children }) => {
     return (
         <div className="Comments">
             <h4>Comments</h4>
-            { children }
+            {children}
         </div>
     );
 };

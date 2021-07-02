@@ -39,10 +39,12 @@ const Navbar = () => {
             <Link
                 to="/dashboard#myPosts"
                 className="btnTag"
-            >{
+            >
+                {
                     loggeIn.id ? loggeIn.name
                         : 'Login'
-                }</Link>
+                }
+            </Link>
         </div>
     );
 };

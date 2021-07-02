@@ -33,7 +33,7 @@ const PostDetails = () => {
         <div className="PostDetails">
             <Menu />
             <Navbar />
-            <Post postData={postData}/>
+            <Post postData={postData} />
 
             {/* using props-composition to avoid props-drilling */}
             <Comments>
@@ -45,4 +45,4 @@ const PostDetails = () => {
     );
 };
 
-export default PostDetails;
+export default PostDetails; // to App
