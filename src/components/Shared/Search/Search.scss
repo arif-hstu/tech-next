@@ -22,6 +22,8 @@
         .placeholder {
             left: 2.5rem;
             top: 0.6rem;
+            user-select: none;
+            pointer-events: none;
         }
 
         input {

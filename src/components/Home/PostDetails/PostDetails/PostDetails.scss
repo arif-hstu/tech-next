@@ -1,3 +1,13 @@
 .PostDetails {
-    // background-color: tomato;
+    & > :first-child {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .PostDetails {
+        & > :first-child {
+            display: block;
+        }
+    }
 }

@@ -8,6 +8,7 @@ import FeaturedBlog from '../../Blogs/FeaturedBlog/FeaturedBlog';
 import AllBlogs from '../../Blogs/AllBlogs/AllBlogs';
 import UserCard from '../UserCard/UserCard';
 import { UserPostsContext } from '../../../../App';
+import Menu from '../../../Shared/Menu/Menu';
 
 const UserDetails = () => {
     const { id } = useParams();
@@ -33,6 +34,7 @@ const UserDetails = () => {
 
     return (
         <div className="UserDetails">
+            <Menu />
             <Navbar />
             <UserCard userData={userData} />
             <Search />

@@ -7,10 +7,12 @@ const Banner = ({ notFound }) => {
             <div className="heading">
                 {
                     notFound ?
-                        <h1>
-                            <span>Oops...</span><br />
-                            We Couldn't Find Anything
-                        </h1> :
+                        <div className="notFound">
+                            <h1>
+                                <span>Oops...</span><br />
+                                We Couldn't Find Anything
+                            </h1>
+                        </div> :
                         <h1>
                             <span>Latest News</span><br />
                             Updates

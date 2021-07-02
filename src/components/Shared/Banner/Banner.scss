@@ -3,4 +3,11 @@
 .Banner {
     margin: 5rem $margin-wide 0 $margin-wide;
     text-align: center;
+
+    .notFound {
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -1,3 +1,14 @@
 .UserDetails {
+    & > :first-child {
+        display: none;
+    }
     margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 620px) {
+    .UserDetails {
+        & > :first-child {
+            display: block;
+        }
+    }
 }

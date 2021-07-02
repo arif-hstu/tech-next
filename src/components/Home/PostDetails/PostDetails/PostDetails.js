@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Menu from '../../../Shared/Menu/Menu';
 
 import Navbar from '../../../Shared/Navbar/Navbar';
 import Comment from '../Comments/Comment/Comment';
@@ -30,6 +31,7 @@ const PostDetails = () => {
 
     return (
         <div className="PostDetails">
+            <Menu />
             <Navbar />
             <Post postData={postData}/>
 
